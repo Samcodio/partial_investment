@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="{% url 'form_app:post_pdf' %}">Post Job</a><br>
+{% for post in posts %}
+<a href="{{post.get_absolute_url}}" target="_blank">{{post.pdf_name}}</a><br>
+<!--<embed src="{{post.pdf_part.url}}#toolbar=0&view=fitH" height="300px" width="300px">{{post.pdf_file}}<br>-->
+{{post.posted_on}}<br>
+<br>
+{% endfor %}
+</body>
+</html>

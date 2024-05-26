@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ {% if messages %}
+    {% for message in messages %}
+    <p>{{message}}</p>
+    {% endfor %}
+    {% endif %}
+<form action="" method="POST">
+    {% csrf_token %}
+<label for="otp_email">Email</label><br>
+<input type="text" name="otp_email" id="otp_email" placeholder="Enter your email"><br>
+<input type="submit" valid="Resend otp">
+</form>
+</body>
+</html>

@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html >
+<head>
+  <!-- Site made with Mobirise Online Website Builder v5.9.13, https://a.mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v5.9.13, a.mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/logo5.png" type="image/x-icon">
+  <meta name="description" content="Secure and easy access to your account. Join us now!">
+  <title>Secure Login Access</title>
+  <link rel="stylesheet" href="https://r.mobirisesite.com/463277/assets/bootstrap/css/bootstrap.min.css?rnd=1716498604402">
+  <link rel="stylesheet" href="https://r.mobirisesite.com/463277/assets/bootstrap/css/bootstrap-grid.min.css?rnd=1716498604402">
+  <link rel="stylesheet" href="https://r.mobirisesite.com/463277/assets/bootstrap/css/bootstrap-reboot.min.css?rnd=1716498604402">
+  <link rel="stylesheet" href="https://r.mobirisesite.com/463277/assets/theme/css/style.css?rnd=1716498604402">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;700&display=swap&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;700&display=swap&display=swap"></noscript>
+  <link rel="stylesheet" href="https://r.mobirisesite.com/463277/assets/css/mbr-additional.css?rnd=1716498604402" type="text/css">
+
+
+
+
+</head>
+<body>
+
+  <section data-bs-version="5.1" class="form5 cid-udDl4fLW5N" id="contact-form-2-udDl4fLW5N">
+       {% if messages %}
+    {% for message in messages %}
+    <p>{{message}}</p>
+    {% endfor %}
+    {% endif %}
+
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 content-head">
+                <div class="mbr-section-head mb-5">
+                    <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+                        <strong>Get in on the Action</strong>
+                    </h3>
+
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
+                <form action="" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true" value="W3TBLsUD8jfoZ2bdMnJ3FlxzvoSvy35pC9i/DLdPcRccOWTY3g7tjLMIanhvga2fpdKeGFSNGN2eZ9yYCWE6wr9nKzqV5KwzAwSYaHR2LiquFt8kNvuPoj14IqKw4REa">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
+                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
+                            Oops...! some problem!
+                        </div>
+                    </div>
+                    <div class="dragArea row">
+                        <div class="col-md col-sm-12 form-group mb-3" data-for="name">
+                            <input type="text" name="username" placeholder="Username" data-form-field="name" class="form-control" value="" id="name-contact-form-2-udDl4fLW5N">
+                        </div>
+                        <div class="col-md col-sm-12 form-group mb-3" data-for="email">
+                            <input type="password" name="password" placeholder="Password" data-form-field="email" class="form-control" value="" id="email-contact-form-2-udDl4fLW5N">
+                        </div>
+<!--                        <div class="col-12 form-group mb-3" data-for="textarea">-->
+<!--                            <textarea name="textarea" placeholder="Message" data-form-field="textarea" class="form-control" id="textarea-contact-form-2-udDl4fLW5N"></textarea>-->
+<!--                        </div>-->
+                        <div class="col-lg-12 col-md-12 col-sm-12 align-center mbr-section-btn">
+                            <button type="submit" class="btn btn-primary display-7">Sign In</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+  <script src="{% static 'login_and _reg/web/assets/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'login_and _reg/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'login_and _reg/smoothscroll/smooth-scroll.js' %}"></script>
+  <script src="{% static 'login_and _reg/ytplayer/index.js' %}"></script>
+  <script src="{% static 'login_and _reg/theme/js/script.js' %}"></script>
+  <script src="{% static 'login_and _reg/formoid/formoid.min.js' %}"></script>
+
+
+
+</body>
+</html>

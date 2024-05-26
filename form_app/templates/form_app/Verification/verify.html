@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body><h1>
+    Verify your email
+</h1>
+ {% if messages %}
+    {% for message in messages %}
+    <p>{{message}}</p>
+    {% endfor %}
+    {% endif %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="otp_code">Otp</label>
+    <input type="text" name="otp_code" id="otp_code">
+    <input type="submit" value="Verify"><br><br>
+</form>
+Need new otp?<a href="{% url 'form_app:resend_email' %}">Resend Otp</a>
+</body>
+</html>
