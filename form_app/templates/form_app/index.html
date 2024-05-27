@@ -80,7 +80,11 @@
 				<h1 class="mbr-section-title mbr-fonts-style mbr-white mb-4 display-1"><strong>Join Us</strong></h1>
 
 				<p class="mbr-fonts-style mbr-text mbr-white mb-4 display-7">Found Ever is a growing agency with a lot of space and resources to grow. Why not be there to grow along with us?<br></p>
+                {% if user.is_authenticated %}
 				<div class="mbr-section-btn"><a class="btn btn-danger display-7" href="{% url 'form_app:list_pdf' %}">Get started</a></div>
+                {% else %}
+                <div class="mbr-section-btn"><a class="btn btn-danger display-7" href="{% url 'user_login:login' %}">Get started</a></div>
+                {% endif %}
 			</div>
 		</div>
 	</div>

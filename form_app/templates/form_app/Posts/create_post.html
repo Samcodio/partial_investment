@@ -5,10 +5,13 @@
     <title>Title</title>
 </head>
 <body>
+<h1>Post Jobs</h1>
 <form action="" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Post">
+    {{form.pdf_name.label}}<br>
+    {{form.pdf_name}}<br><br>
+    {{form.pdf_file}}<br><br>
+    <input type="submit" value="Post"><br>
 </form>
 </body>
 </html>
