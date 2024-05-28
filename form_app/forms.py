@@ -7,3 +7,9 @@ class post_form(ModelForm):
         model = Post_pdf
         fields = ['pdf_name', 'pdf_file']
 
+
+class updateprofile_form(ModelForm):
+    class Meta:
+        model = CustomUser
+        fields = ['first_name', 'last_name', 'username', 'account_name', 'account_number']
+

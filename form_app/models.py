@@ -13,6 +13,8 @@ from django.shortcuts import reverse
 
 class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
+    account_number = models.IntegerField(max_length=10, null=True, blank=True, editable=True)
+    account_name = models.CharField(max_length=40, null=True, blank=True, editable=True)
 
     USERNAME_FIELD = ("email")
     REQUIRED_FIELDS = ["username"]

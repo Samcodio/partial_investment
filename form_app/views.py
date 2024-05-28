@@ -89,7 +89,6 @@ def resend_otp(request):
         if CustomUser.objects.filter(email=user_email).exists():
             user = CustomUser.objects.get(email=user_email)
             otp = Otptoken.objects.create(user=user, otp_expires_at=timezone.now() + timezone.timedelta(minutes=5))
-            otp.save()
 
 #             email variables
             subject = "Email Verification"
@@ -119,3 +118,9 @@ def resend_otp(request):
     return render(request, 'form_app/Verification/resend.html', context)
 
 
+def profile_page(request):
+    userdetails = request.user
+    context = {
+        'userdetails': userdetails
+    }
+    return render(request, 'form_app/profile.html', context)
