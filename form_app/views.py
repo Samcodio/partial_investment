@@ -159,6 +159,6 @@ def list_users(request):
         'listusers': listusers,
         'count': count
     }
-    return render(request, 'form_app/Profile/list_users.html', context)
+    return render(request, 'form_app/list_users.html', context)
 
 
