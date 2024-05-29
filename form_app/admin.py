@@ -6,3 +6,4 @@ from .models import *
 admin.site.register(Post_pdf)
 admin.site.register(CustomUser)
 admin.site.register(Otptoken)
+admin.site.register(UserAmount)

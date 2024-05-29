@@ -142,3 +142,23 @@ def edit_profile(request):
         'profileform': profileform
      }
     return render(request, 'form_app/edit_profile.html', context)
+
+
+def user_amnt(request, pk):
+    amnt = get_object_or_404(UserAmount, pk=pk)
+    context = {
+        'amnt': amnt
+    }
+    return render(request, 'form_app/User_amount/user_amount.html', context)
+
+
+def list_users(request):
+    listusers = CustomUser.objects.all()
+    count = listusers.count
+    context = {
+        'listusers': listusers,
+        'count': count
+    }
+    return render(request, 'form_app/Profile/list_users.html', context)
+
+

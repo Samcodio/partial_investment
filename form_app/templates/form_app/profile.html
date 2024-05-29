@@ -21,7 +21,9 @@ Account Details<br>
 {{userdetails.bank_name}}<br>
 {{userdetails.account_name}}<br>
 {{userdetails.account_number}}<br><br>
+{{userdetails.auser.amount}}<br>
 
 <a href="{% url 'form_app:edit_profile' %}">Edit Profile</a>
+<a href="{% url 'form_app:user_amount' userdetails.pk %}">Balance</a>
 </body>
 </html>

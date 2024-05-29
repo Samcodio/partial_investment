@@ -14,8 +14,8 @@ class RegistrationForm(forms.ModelForm):
     def clean_confirm_password(self):
         password = self.cleaned_data.get("password")
         confirm_password = self.cleaned_data.get("confirm_password")
-        if password and confirm_password != confirm_password:
-            raise forms.ValidationError("Both passwords should match")
+        if password != confirm_password:
+            self.add_error('confirm_password', 'Password and Confirm Password do not match')
         return confirm_password
 
     def save(self, commit=True):
