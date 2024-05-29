@@ -8,8 +8,8 @@ class post_form(ModelForm):
         fields = ['pdf_name', 'pdf_file']
 
 
-class updateprofile_form(ModelForm):
+class EditProfileInfo(ModelForm):
     class Meta:
         model = CustomUser
-        fields = ['first_name', 'last_name', 'username', 'account_name', 'account_number']
+        fields = ['first_name', 'last_name', 'username', 'bank_name', 'account_name', 'account_number']
 

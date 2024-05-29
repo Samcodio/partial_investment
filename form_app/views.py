@@ -124,3 +124,21 @@ def profile_page(request):
         'userdetails': userdetails
     }
     return render(request, 'form_app/profile.html', context)
+
+
+def edit_profile(request):
+    profileform = EditProfileInfo(instance=request.user)
+    if request.method == 'POST':
+        profileform = EditProfileInfo(request.POST, instance=request.user)
+        if profileform.is_valid():
+            profileform.save()
+            messages.info(request, 'Profile has been updated')
+            return redirect('form_app:user_profile')
+        else:
+            messages(request, 'Invalid details')
+    else:
+        profileform = EditProfileInfo(instance=request.user)
+    context = {
+        'profileform': profileform
+     }
+    return render(request, 'form_app/edit_profile.html', context)

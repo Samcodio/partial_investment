@@ -12,9 +12,34 @@ from django.shortcuts import reverse
 
 
 class CustomUser(AbstractUser):
+    Status_choices = [
+        ('Select Your Bank', 'Select Your Bank'),
+        ('Access Bank Plc', 'Access Bank Plc'),
+        ('Fidelity Bank Plc', 'Fidelity Bank Plc'),
+        ('First City Monument Bank Limited', 'First City Monument Bank Limited'),
+        ('First Bank of Nigeria Limited', 'First Bank of Nigeria Limited'),
+        ('Guaranty Trust Holding Company Plc', 'Guaranty Trust Holding Company Plc'),
+        ('Union Bank of Nigeria Plc', 'Union Bank of Nigeria Plc'),
+        ('United Bank for Africa Plc', 'United Bank for Africa Plc'),
+        ('Zenith Bank Plc', 'Zenith Bank Plc'),
+        ('Citibank Nigeria Limited', 'Citibank Nigeria Limited'),
+        ('Ecobank Nigeria', 'Ecobank Nigeria'),
+        ('Heritage Bank Plc', 'Heritage Bank Plc'),
+        ('Keystone Bank Limited', 'Keystone Bank Limited'),
+        ('Optimus Bank Limited', 'Optimus Bank Limited'),
+        ('Polaris Bank Limited', 'Polaris Bank Limited'),
+        ('Stanbic IBTC Bank Plc', 'Stanbic IBTC Bank Plc'),
+        ('Standard Chartered', 'Standard Chartered'),
+        ('Sterling Bank Plc', 'Sterling Bank Plc'),
+        ('Titan Trust Bank', 'Titan Trust Bank'),
+        ('Unity Bank Plc', 'Unity Bank Plc'),
+        ('Wema Bank Plc', 'Wema Bank Plc'),
+
+    ]
     email = models.EmailField(unique=True)
-    account_number = models.IntegerField(max_length=10, null=True, blank=True, editable=True)
-    account_name = models.CharField(max_length=40, null=True, blank=True, editable=True)
+    bank_name = models.CharField(max_length=50, choices=Status_choices)
+    account_number = models.CharField(max_length=10, null=True, blank=True)
+    account_name = models.CharField(max_length=40, null=True, blank=True)
 
     USERNAME_FIELD = ("email")
     REQUIRED_FIELDS = ["username"]
