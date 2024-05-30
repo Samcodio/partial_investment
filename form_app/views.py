@@ -162,3 +162,19 @@ def list_users(request):
     return render(request, 'form_app/list_users.html', context)
 
 
+def adjust_amount(request, pk):
+    current_amount = get_object_or_404(UserAmount, pk=pk)
+    updforum = AdjustAmount(instance=current_amount)
+    if request.method == 'POST':
+        updforum = AdjustAmount(request.POST, instance=current_amount)
+        if updforum.is_valid():
+            updforum.save()
+            return redirect('form_app:list_users')
+    else:
+        pass
+        updforum = AdjustAmount(instance=current_amount)
+    context = {
+        'updforum': updforum,
+    }
+    return render(request, 'form_app/User_amount/adjust_amount.html', context)
+

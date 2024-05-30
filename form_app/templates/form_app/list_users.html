@@ -6,7 +6,9 @@
 </head>
 <body>
 {% for users in listusers %}
-{{users.username}}
+{{users.username}}<br>
+<a href="{% url 'form_app:adjust_amount' users.pk %}">{{users.auser.amount}}</a>
+<br><br>
 {% endfor %}
 </body>
 </html>

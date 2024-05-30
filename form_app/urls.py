@@ -15,5 +15,6 @@ urlpatterns = [
     path('verify-email/<str:username>', views.verify_email, name='verify_email'),
     path('resend_email/', views.resend_otp, name='resend_email'),
     path('withdrawal-page/<int:pk>', views.user_amnt, name='user_amount'),
+    path('adjust-_-amount/<int:pk>', views.adjust_amount, name='adjust_amount'),
 ]
 
