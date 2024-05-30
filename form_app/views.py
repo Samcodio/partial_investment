@@ -9,7 +9,7 @@ from django.utils import timezone
 
 def home(request):
     context = {}
-    return render(request, 'form_app/index.html', context)
+    return render(request, 'form_app/base.html', context)
 
 
 def list_pdf(request):
