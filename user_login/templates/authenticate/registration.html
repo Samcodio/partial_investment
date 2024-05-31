@@ -83,18 +83,28 @@
               <form action="" method="POST" class="pt-3">
                   {% csrf_token %}
                 <div class="form-group">
-                  <div class="form-control form-control-lg" id="exampleInputUsername1" placeholder="Username">
+                  <input class="form-control form-control-lg" id="exampleInputUsername1" placeholder="Username">
                     {{form.username}}
-                  </div>
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email">
+                  <input type="text" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="First Name">
+                  {{form.first_name}}
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password" autocomplete="new-password">
+                  <input type="text" class="form-control form-control-lg" placeholder="Last Name">
+                  {{form.last_name}}
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control form-control-lg" id="exampleInputPassword2" placeholder="Comfirm Password">
+                  <input type="email" class="form-control form-control-lg" placeholder="Email">
+                  {{form.email}}
+                </div>
+                  <div class="form-group">
+                  <input type="password" class="form-control form-control-lg" placeholder="Password" autocomplete="new-password">
+                    {{form.password}}
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control form-control-lg" placeholder="Comfirm Password">
+                  {{form.confirm_password}}
                 </div>
                 <div class="mb-4">
                   <div class="form-check">
