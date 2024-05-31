@@ -39,7 +39,7 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    return redirect('user_login:login')
+    return redirect('form_app:home')
 
 
 def registration(request):

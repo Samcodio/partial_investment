@@ -24,10 +24,10 @@ Account Details<br>
 {{userdetails.auser.amount}}<br>
 
 <a href="{% url 'form_app:edit_profile' %}">Edit Profile</a>
+{% if user.is_authenticated %}
 <a href="{% url 'form_app:user_amount' userdetails.pk %}">Balance</a>
-{% if user.is_superuser %}
-<a href="{% url 'form_app:list_users' %}">User list</a>
 {% else %}
 {% endif %}
+
 </body>
 </html>

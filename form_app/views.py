@@ -26,6 +26,11 @@ def list_pdf(request):
     return render(request, 'form_app/Posts/pdf.html', context)
 
 
+def settings(request):
+    context = {}
+    return render(request, 'form_app/settings.html', context)
+
+
 def post_pdf(request):
     form = post_form()
     if request.method == 'POST':

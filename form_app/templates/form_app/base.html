@@ -17,14 +17,14 @@
   <link rel="stylesheet" href="{% static 'vendors/ti-icons/css/themify-icons.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'js/select.dataTables.min.css' %}">
   <link rel="stylesheet" href="{% static 'css/vertical-layout-light/style.css' %}">
-  <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" />
+  <link rel="shortcut icon" href="{% static 'images/found_ever_logo.jpg' %}" />
 </head>
 <body>
   <div class="container-scroller">
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="{% static 'images/logo.svg' %}" class="mr-2" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{% static 'images/logo-mini.svg' %}" alt="logo"/></a>
+        <a class="navbar-brand brand-logo mr-5" href="{% url 'form_app:home' %}"><img src="{% static 'images/found_ever_logo.jpg' %}" class="mr-2" alt="logo"/>Found Ever</a>
+<!--        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{% static 'images/logo-mini.svg' %}" class="mr-2" alt="logo"/></a>-->
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -93,16 +93,35 @@
           </li>
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="{% static 'images/faces/face28.jpg' %}" alt="profile"/>
+<!--              <img src="{% static 'images/found_ever_logo.jpg' %}" alt="profile"/>-->
+              <i class="ti-settings text-primary"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item">
-                <i class="ti-settings text-primary"></i>
+              {% if user.is_authenticated %}
+              <a class="dropdown-item" href="{% url 'form_app:settings' %}">
+<!--                <i class="ti-settings text-primary"></i>-->
                 Settings
               </a>
-              <a class="dropdown-item" href="{% url 'user_login:signIn' %}">
-                <i class="ti-power-off text-primary"></i>
+              {% else %}
+              <a class="dropdown-item" href="{% url 'user_login:login' %}">
+<!--                <i class="ti-settings text-primary"></i>-->
+                Settings
+              </a>
+              {% endif %}
+              {% if user.is_authenticated %}
+              <a class="dropdown-item" href="{% url 'user_login:logout' %}">
+<!--                <i class="ti-power-off text-primary"></i>-->
                 Logout
+              </a>
+              {% else %}
+              <a class="dropdown-item" href="{% url 'user_login:login' %}">
+<!--                <i class="ti-power-off text-primary"></i>-->
+                Login
+              </a>
+              {% endif %}
+              <a class="dropdown-item" href="{% url 'user_login:registration' %}">
+<!--                <i class="ti-power-off text-primary"></i>-->
+                Sign Up
               </a>
             </div>
           </li>
@@ -290,16 +309,42 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'user_login:dashboard' %}">
-              <i class="icon-grid menu-icon"></i>
+          <a class="nav-link" href="{% url 'form_app:home' %}">
+<!--              <i class="icon-grid menu-icon"></i>-->
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'user_login:signIn' %}">
-              <i class="ti-power-off menu-icon"></i>
+          <a class="nav-link" href="{% url 'form_app:user_profile' %}">
+<!--              <i class="icon-grid menu-icon"></i>-->
+              <span class="menu-title">View Profile</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'form_app:list_users' %}">
+<!--              <i class="icon-grid menu-icon"></i>-->
+              <span class="menu-title">Job List</span>
+            </a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="">
+<!--              <i class="icon-grid menu-icon"></i>-->
+              <span class="menu-title">Customer Care</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            {% if user.is_authenticated %}
+            <a class="nav-link" href="{% url 'user_login:logout' %}">
+<!--              <i class="ti-power-off menu-icon"></i>-->
               <span class="menu-title">Logout</span>
             </a>
+            {% else %}
+            <a class="nav-link" href="{% url 'user_login:login' %}">
+<!--              <i class="ti-power-off menu-icon"></i>-->
+              <span class="menu-title">Login</span>
+            </a>
+            {% endif %}
+
           </li>
         </ul>
       </nav>

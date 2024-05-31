@@ -1,92 +1,118 @@
+<!--{% load static %}-->
+<!--<!DOCTYPE html>-->
+<!--<html >-->
+<!--<head>-->
+<!--</head>-->
+<!--<body>-->
+<!-- {% if messages %}-->
+<!--    {% for message in messages %}-->
+<!--    <p>{{message}}</p>-->
+<!--    {% endfor %}-->
+<!--    {% endif %}-->
+<!--                <form action="" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true" value="W3TBLsUD8jfoZ2bdMnJ3FlxzvoSvy35pC9i/DLdPcRccOWTY3g7tjLMIanhvga2fpdKeGFSNGN2eZ9yYCWE6wr9nKzqV5KwzAwSYaHR2LiquFt8kNvuPoj14IqKw4REa">-->
+<!--                    {% csrf_token %}-->
+<!--                            {{form.username.label}}-->
+<!--                                {{form.username}}-->
+<!--                            {{form.first_name.label}}-->
+<!--                                {{form.first_name}}-->
+<!--                            {{form.last_name.label}}-->
+<!--                                {{form.last_name}}-->
+<!--                            {{form.password.label}}-->
+<!--                                {{form.password}}-->
+<!--                            {{form.confirm_password.label}}-->
+<!--                                {{form.confirm_password}}-->
+<!--                            {{form.email.label}}-->
+<!--                            <button type="submit" class="btn btn-primary display-7">Sign Me Up!</button>-->
+<!--                </form>-->
+<!--{% if form.errors %}-->
+<!--        <ul>-->
+<!--            {% for field in form %}-->
+<!--                {% for error in field.errors %}-->
+<!--                    <li>{{ error }}</li>-->
+<!--                {% endfor %}-->
+<!--            {% endfor %}-->
+<!--            {% for error in form.non_field_errors %}-->
+<!--                <li>{{ error }}</li>-->
+<!--            {% endfor %}-->
+<!--        </ul>-->
+<!--    {% endif %}-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+
+
+
+
+
+
 {% load static %}
 <!DOCTYPE html>
-<html >
+<html lang="en">
 <head>
-  <!-- Site made with Mobirise Online Website Builder v5.9.13, https://a.mobirise.com -->
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Mobirise v5.9.13, a.mobirise.com">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="{% static 'log_and_reg/images/logo5.png' %}" type="image/x-icon">
-  <meta name="description" content="Secure and easy access to your account. Join us now!">
-  <title>Secure Login Access</title>
-  <link rel="stylesheet" href="https://r.mobirisesite.com/463277/assets/bootstrap/css/bootstrap.min.css?rnd=1716498604402">
-  <link rel="stylesheet" href="https://r.mobirisesite.com/463277/assets/bootstrap/css/bootstrap-grid.min.css?rnd=1716498604402">
-  <link rel="stylesheet" href="https://r.mobirisesite.com/463277/assets/bootstrap/css/bootstrap-reboot.min.css?rnd=1716498604402">
-  <link rel="stylesheet" href="https://r.mobirisesite.com/463277/assets/theme/css/style.css?rnd=1716498604402">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;700&display=swap&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;700&display=swap&display=swap"></noscript>
-  <link rel="stylesheet" href="https://r.mobirisesite.com/463277/assets/css/mbr-additional.css?rnd=1716498604402" type="text/css">
-
-
-
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Skydash Admin</title>
+  <link rel="stylesheet" href="{% static 'vendors/feather/feather.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/ti-icons/css/themify-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
+  <link rel="stylesheet" href="{% static 'css/vertical-layout-light/style.css' %}">
+  <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" />
 </head>
+
 <body>
-
-  <section data-bs-version="5.1" class="form5 cid-udDl4fLW5N" id="contact-form-2-udDl4fLW5N">
- {% if messages %}
-    {% for message in messages %}
-    <p>{{message}}</p>
-    {% endfor %}
-    {% endif %}
-
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 content-head">
-                <div class="mbr-section-head mb-5">
-                    <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
-                        <strong>Get in on the Action</strong>
-                    </h3>
-
+  <div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="content-wrapper d-flex align-items-center auth px-0">
+        <div class="row w-100 mx-0">
+          <div class="col-lg-4 mx-auto">
+            <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+              <div class="brand-logo">
+                <img src="{% static 'images/logo.svg' %}" alt="logo">
+              </div>
+                {% if messages %}
+                {% for message in messages %}
+                <p>{{message}}</p>
+                {% endfor %}
+                {% endif %}
+              <h4>New here?</h4>
+              <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
+              <form action="" method="POST" class="pt-3">
+                  {% csrf_token %}
+                <div class="form-group">
+                  <div class="form-control form-control-lg" id="exampleInputUsername1" placeholder="Username">
+                    {{form.username}}
+                  </div>
                 </div>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
-                <form action="" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true" value="W3TBLsUD8jfoZ2bdMnJ3FlxzvoSvy35pC9i/DLdPcRccOWTY3g7tjLMIanhvga2fpdKeGFSNGN2eZ9yYCWE6wr9nKzqV5KwzAwSYaHR2LiquFt8kNvuPoj14IqKw4REa">
-                    {% csrf_token %}
-                    <div class="row">
-                        <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
-                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
-                            Oops...! some problem!
-                        </div>
-                    </div>
-                    <div class="dragArea row">
-                        <div class="col-md col-sm-12 form-group mb-3" data-for="name">
-                            {{form.username.label}}
-                            <span placeholder="Name" data-form-field="name" class="form-control" value="" id="name-contact-form-2-udDl4fLW5N">{{form.username}}</span>
-                        </div>
-                        <div class="col-md col-sm-12 form-group mb-3" data-for="name">
-                            {{form.first_name.label}}
-                            <span placeholder="Name" data-form-field="name" class="form-control" value="">{{form.first_name}}</span>
-                        </div>
-                        <div class="col-md col-sm-12 form-group mb-3" data-for="name">
-                            {{form.last_name.label}}
-                            <span placeholder="Name" data-form-field="name" class="form-control" value="">{{form.last_name}}</span>
-                        </div>
-                        <div class="col-md col-sm-12 form-group mb-3" data-for="name">
-                            {{form.password.label}}
-                            <span placeholder="Name" data-form-field="name" class="form-control" value="">{{form.password}}</span>
-                        </div>
-                        <div class="col-md col-sm-12 form-group mb-3" data-for="name">
-                            {{form.confirm_password.label}}
-                            <span placeholder="Name" data-form-field="name" class="form-control" value="">{{form.confirm_password}}</span>
-                        </div>
-                        <div class="col-md col-sm-12 form-group mb-3" data-for="email">
-                            {{form.email.label}}
-                            <span placeholder="Email" data-form-field="email" class="form-control" value="" id="email-contact-form-2-udDl4fLW5N">{{form.email}}</span>
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 align-center mbr-section-btn">
-                            <button type="submit" class="btn btn-primary display-7">Sign Me Up!</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-{% if form.errors %}
+                <div class="form-group">
+                  <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password" autocomplete="new-password">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control form-control-lg" id="exampleInputPassword2" placeholder="Comfirm Password">
+                </div>
+                <div class="mb-4">
+                  <div class="form-check">
+                    <label class="form-check-label text-muted">
+                      <input type="checkbox" class="form-check-input">
+                      I agree to all Terms & Conditions
+                    </label>
+                  </div>
+                </div>
+                <div class="mt-3">
+                  <input type="submit" value="SIGN UP" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">
+                </div>
+                <div class="text-center mt-4 font-weight-light">
+                  Already have an account? <a href="{% url 'user_login:login' %}" class="text-primary">Login</a>
+                </div>
+              </form>
+
+              {% if form.errors %}
         <ul>
             {% for field in form %}
                 {% for error in field.errors %}
@@ -98,17 +124,18 @@
             {% endfor %}
         </ul>
     {% endif %}
-
-
-
-  <script src="{% static 'login_and _reg/web/assets/jquery/jquery.min.js' %}"></script>
-  <script src="{% static 'login_and _reg/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'login_and _reg/smoothscroll/smooth-scroll.js' %}"></script>
-  <script src="{% static 'login_and _reg/ytplayer/index.js' %}"></script>
-  <script src="{% static 'login_and _reg/theme/js/script.js' %}"></script>
-  <script src="{% static 'login_and _reg/formoid/formoid.min.js' %}"></script>
-
-
-
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
+  <script src="{% static 'js/off-canvas.js' %}"></script>
+  <script src="{% static 'js/hoverable-collapse.js' %}"></script>
+  <script src="{% static 'js/template.js' %}"></script>
+  <script src="{% static 'js/settings.js' %}"></script>
+  <script src="{% static 'js/todolist.js' %}"></script>
 </body>
+
 </html>
