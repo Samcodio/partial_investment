@@ -22,20 +22,32 @@
               <div class="brand-logo">
                 <img src="{% static 'images/logo.svg' %}" alt="logo">
               </div>
+              {% if messages %}
+              {% for message in messages %}
+              <p>{{message}}</p>
+              {% endfor %}
+              {% endif %}
               <h4>New here?</h4>
               <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
               <form class="pt-3">
+                {% csrf_token %}
                 <div class="form-group">
-                  <input type="text" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="Username">
+                    {{form.username}}
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email">
+                  {{form.first_name}}
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password" autocomplete="new-password">
+                  {{form.last_name}}
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control form-control-lg" id="exampleInputPassword2" placeholder="Comfirm Password">
+                  {{form.email}}
+                </div>
+                  <div class="form-group">
+                    {{form.password}}
+                </div>
+                <div class="form-group">
+                  {{form.confirm_password}}
                 </div>
                 <div class="mb-4">
                   <div class="form-check">
@@ -49,7 +61,7 @@
                   <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="{% url 'user_login:otpVerify' %}">SIGN UP</a>
                 </div>
                 <div class="text-center mt-4 font-weight-light">
-                  Already have an account? <a href="{% url 'user_login:signIn' %}" class="text-primary">Login</a>
+                  Already have an account? <a href="{% url 'user_login:login' %}" class="text-primary">Login</a>
                 </div>
               </form>
             </div>

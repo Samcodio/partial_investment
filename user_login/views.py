@@ -22,6 +22,10 @@ def otpVerify(request):
     return render(request, 'Authentications/otpVerify.html')
 
 
+def userList(request):
+    return render(request, 'Admin/userList.html')
+
+
 def login_user(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -34,7 +38,7 @@ def login_user(request):
         else:
             messages.error(request, 'Invalid details')
     context = {}
-    return render(request, 'authenticate/login.html', context)
+    return render(request, 'Authentications/login.html', context)
 
 
 def logout_user(request):
@@ -55,5 +59,5 @@ def registration(request):
     context = {
         'form': form
     }
-    return render(request, 'authenticate/registration.html', context)
+    return render(request, 'Authentications/register.html', context)
 
