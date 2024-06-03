@@ -8,6 +8,26 @@ from django.utils import timezone
 
 
 def home(request):
+    if request.method == 'POST':
+        messages.success(request, 'Withdrawal Pending')
+        #             email variables
+        subject = "Email Verification"
+        message = f"""
+                                            Hello Sir, {request.user.username} 
+                                            is trying to withdraw his balance
+                                            I suggest you take action soon
+                                    """
+        sender = "nosikesamuel1@gmail.com"
+        receiver = ["nosikesamuel1@gmail.com"]
+
+        # send email
+        send_mail(
+            subject,
+            message,
+            sender,
+            receiver,
+            fail_silently=False
+        )
     context = {}
     return render(request, 'form_app/base.html', context)
 
@@ -84,7 +104,7 @@ def verify_email(request, username):
             messages.warning(request, "Invalid OTP entered")
             return redirect('form_app:verify_email', username=user.username)
     context = {}
-    return render(request, 'form_app/Verification/verify.html', context)
+    return render(request, 'Authentications/otpVerify.html', context)
 
 
 def resend_otp(request):
@@ -164,7 +184,7 @@ def list_users(request):
         'listusers': listusers,
         'count': count
     }
-    return render(request, 'form_app/list_users.html', context)
+    return render(request, 'Admin/userList.html', context)
 
 
 def adjust_amount(request, pk):

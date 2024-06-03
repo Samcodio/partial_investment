@@ -29,7 +29,7 @@
               {% endif %}
               <h4>New here?</h4>
               <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
-              <form class="pt-3">
+              <form action="" method="POST" class="pt-3">
                 {% csrf_token %}
                 <div class="form-group">
                     {{form.username}}
@@ -58,7 +58,7 @@
                   </div>
                 </div>
                 <div class="mt-3">
-                  <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="{% url 'user_login:otpVerify' %}">SIGN UP</a>
+                  <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" value="SIGN UP">
                 </div>
                 <div class="text-center mt-4 font-weight-light">
                   Already have an account? <a href="{% url 'user_login:login' %}" class="text-primary">Login</a>

@@ -321,7 +321,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'form_app:list_users' %}">
+            <a class="nav-link" href="{% url 'form_app:list_pdf' %}">
 <!--              <i class="icon-grid menu-icon"></i>-->
               <span class="menu-title">Job List</span>
             </a>
@@ -350,14 +350,35 @@
       </nav>
       <div class="main-panel">
         {% block content %}
+                        {% if messages %}
+                {% for message in messages %}
+                <p>{{message}}</p>
+                {% endfor %}
+                {% endif %}
 
+<div style="
+            border: solid 5px black;
+            height: 300px;
+            width: 300px;
+">
+    {% if user.is_authenticated %}
+    {{request.user.auser.amount}}<br>
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Withdraw">
+      {% else %}
+      0
+      {% endif %}
+  </form>
+
+</div>
         {% endblock %}
       <footer class="footer">
           <div class="d-sm-flex justify-content-center justify-content-sm-between">
             <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2024. All rights reserved.</span>
           </div>
           <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Manageed by <a href="#">Dinnu Daniel</a></span> 
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Manageed by Found Ever</span>
           </div>
       </footer> 
       </div>

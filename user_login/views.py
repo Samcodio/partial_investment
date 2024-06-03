@@ -6,20 +6,20 @@ from .form import *
 # Create your views here.
 
 
-def dashboard(request):
-    return render(request, 'Users/dashboard.html')
+# def dashboard(request):
+#     return render(request, 'Users/dashboard.html')
 
 
-def signUp(request):
-    return render(request, 'Authentications/register.html')
+# def signUp(request):
+#     return render(request, 'Authentications/register.html')
 
 
-def sigIn(request):
-    return render(request, 'Authentications/login.html')
+# def sigIn(request):
+#     return render(request, 'Authentications/login.html')
 
 
-def otpVerify(request):
-    return render(request, 'Authentications/otpVerify.html')
+# def otpVerify(request):
+#     return render(request, 'Authentications/otpVerify.html')
 
 
 def userList(request):
