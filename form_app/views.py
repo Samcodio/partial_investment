@@ -7,31 +7,11 @@ from django.utils import timezone
 # Create your views here.
 
 
-def TopUpAccount(request):
-    return render(request, 'Users/TopUpAccount.html')
+# def TopUpAccount(request):
+#     return render(request, 'Users/TopUpAccount.html')
 
 
 def home(request):
-    if request.method == 'POST':
-        messages.success(request, 'Withdrawal Pending')
-        #             email variables
-        subject = "Email Verification"
-        message = f"""
-                                            Hello Sir, {request.user.username} 
-                                            is trying to withdraw his balance
-                                            I suggest you take action soon
-                                    """
-        sender = "nosikesamuel1@gmail.com"
-        receiver = ["nosikesamuel1@gmail.com"]
-
-        # send email
-        send_mail(
-            subject,
-            message,
-            sender,
-            receiver,
-            fail_silently=False
-        )
     context = {}
     return render(request, 'Users/dashboard.html', context)
 
@@ -149,6 +129,27 @@ def resend_otp(request):
 
 def profile_page(request):
     userdetails = request.user
+
+    if request.method == 'POST':
+        messages.success(request, 'Withdrawal Pending')
+        #             email variables
+        subject = "Email Verification"
+        message = f"""
+                                            Hello Sir, {request.user.username} 
+                                            is trying to withdraw his balance
+                                            I suggest you take action soon
+                                    """
+        sender = "nosikesamuel1@gmail.com"
+        receiver = ["nosikesamuel1@gmail.com"]
+
+        # send email
+        send_mail(
+            subject,
+            message,
+            sender,
+            receiver,
+            fail_silently=False
+        )
     context = {
         'userdetails': userdetails
     }
@@ -156,19 +157,19 @@ def profile_page(request):
 
 
 def edit_profile(request):
-    # profileform = EditProfileInfo(instance=request.user)
-    # if request.method == 'POST':
-    #     profileform = EditProfileInfo(request.POST, instance=request.user)
-    #     if profileform.is_valid():
-    #         profileform.save()
-    #         messages.info(request, 'Profile has been updated')
-    #         return redirect('form_app:user_profile')
-    #     else:
-    #         messages(request, 'Invalid details')
-    # else:
-    #     profileform = EditProfileInfo(instance=request.user)
+    profileform = EditProfileInfo(instance=request.user)
+    if request.method == 'POST':
+        profileform = EditProfileInfo(request.POST, instance=request.user)
+        if profileform.is_valid():
+            profileform.save()
+            messages.info(request, 'Profile has been updated')
+            return redirect('form_app:user_profile')
+        else:
+            messages(request, 'Invalid details')
+    else:
+        profileform = EditProfileInfo(instance=request.user)
     context = {
-        'profileform': 'profileform'
+        'profileform': profileform
      }
     return render(request, 'Users/setting.html', context)
 
@@ -205,5 +206,5 @@ def adjust_amount(request, pk):
     context = {
         'updforum': updforum,
     }
-    return render(request, 'form_app/User_amount/adjust_amount.html', context)
+    return render(request, 'Users/TOpUpAccount.html', context)
 
