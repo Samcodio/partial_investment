@@ -96,11 +96,11 @@
               <img src="{% static 'images/faces/face28.jpg' %}" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item">
+              <a class="dropdown-item" href="{% url 'form_app:edit_profile' %}">
                 <i class="ti-settings text-primary"></i>
                 Settings
               </a>
-              <a class="dropdown-item" href="{% url 'user_login:signIn' %}">
+              <a class="dropdown-item" href="{% url 'user_login:registration' %}">
                 <i class="ti-power-off text-primary"></i>
                 Logout
               </a>
@@ -290,7 +290,7 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'user_login:dashboard' %}">
+            <a class="nav-link" href="{% url 'form_app:home' %}">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
@@ -302,7 +302,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'user_login:signIn' %}">
+            <a class="nav-link" href="{% url 'form_app:user_profile' %}">
+              <i class="ti-user menu-icon"></i>
+              <span class="menu-title">Profile</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'user_login:registration' %}">
               <i class="ti-power-off menu-icon"></i>
               <span class="menu-title">Logout</span>
             </a>

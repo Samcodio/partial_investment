@@ -16,6 +16,8 @@ urlpatterns = [
     path('resend_email/', views.resend_otp, name='resend_email'),
     path('withdrawal-page/<int:pk>', views.user_amnt, name='user_amount'),
     path('adjust-_-amount/<int:pk>', views.adjust_amount, name='adjust_amount'),
-    path('settings', views.settings, name='settings'),
+    path('settings/', views.settings, name='settings'),
+    path('TopUpAccount/', views.TopUpAccount, name='TopUpAccount'),
+
 ]
 

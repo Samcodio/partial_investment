@@ -7,6 +7,10 @@ from django.utils import timezone
 # Create your views here.
 
 
+def TopUpAccount(request):
+    return render(request, 'Users/TopUpAccount.html')
+
+
 def home(request):
     if request.method == 'POST':
         messages.success(request, 'Withdrawal Pending')
@@ -29,7 +33,7 @@ def home(request):
             fail_silently=False
         )
     context = {}
-    return render(request, 'form_app/base.html', context)
+    return render(request, 'Users/dashboard.html', context)
 
 
 def list_pdf(request):
@@ -148,25 +152,25 @@ def profile_page(request):
     context = {
         'userdetails': userdetails
     }
-    return render(request, 'form_app/profile.html', context)
+    return render(request, 'Users/profile.html', context)
 
 
 def edit_profile(request):
-    profileform = EditProfileInfo(instance=request.user)
-    if request.method == 'POST':
-        profileform = EditProfileInfo(request.POST, instance=request.user)
-        if profileform.is_valid():
-            profileform.save()
-            messages.info(request, 'Profile has been updated')
-            return redirect('form_app:user_profile')
-        else:
-            messages(request, 'Invalid details')
-    else:
-        profileform = EditProfileInfo(instance=request.user)
+    # profileform = EditProfileInfo(instance=request.user)
+    # if request.method == 'POST':
+    #     profileform = EditProfileInfo(request.POST, instance=request.user)
+    #     if profileform.is_valid():
+    #         profileform.save()
+    #         messages.info(request, 'Profile has been updated')
+    #         return redirect('form_app:user_profile')
+    #     else:
+    #         messages(request, 'Invalid details')
+    # else:
+    #     profileform = EditProfileInfo(instance=request.user)
     context = {
-        'profileform': profileform
+        'profileform': 'profileform'
      }
-    return render(request, 'form_app/edit_profile.html', context)
+    return render(request, 'Users/setting.html', context)
 
 
 def user_amnt(request, pk):
