@@ -27,7 +27,7 @@ def list_pdf(request):
         'posts': posts,
         'count': count
     }
-    return render(request, 'form_app/Posts/pdf.html', context)
+    return render(request, 'PdfList/List.html', context)
 
 
 def settings(request):

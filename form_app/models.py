@@ -34,7 +34,6 @@ class CustomUser(AbstractUser):
         ('Titan Trust Bank', 'Titan Trust Bank'),
         ('Unity Bank Plc', 'Unity Bank Plc'),
         ('Wema Bank Plc', 'Wema Bank Plc'),
-
     ]
     email = models.EmailField(unique=True)
     bank_name = models.CharField(max_length=50, choices=Status_choices)
