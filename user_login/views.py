@@ -22,8 +22,8 @@ from .form import *
 #     return render(request, 'Authentications/otpVerify.html')
 
 
-def userList(request):
-    return render(request, 'Admin/userList.html')
+# def userList(request):
+#     return render(request, 'Admin/userList.html')
 
 
 def login_user(request):

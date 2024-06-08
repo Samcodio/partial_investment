@@ -11,7 +11,11 @@
       <div class="col-md-12 grid-margin">
         <div class="row">
           <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+            {% if user.is_authenticated %}
             <h3 class="font-weight-bold">Welcome {{request.user.username}}</h3>
+            {% else %}
+            <a href="{% url 'user_login:registration' %}"><h3 class="font-weight-bold">Sign Up Now</h3></a>
+            {% endif %}
   <!--            <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">3 unread alerts!</span></h6>-->
           </div>
           <div class="col-12 col-xl-4">

@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import dj_database_url
 import os
 from pathlib import Path
 
@@ -47,6 +48,7 @@ AUTH_USER_MODEL = 'form_app.CustomUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -95,6 +97,10 @@ DATABASES = {
 #     }
 # }
 
+DATABASES["default"] = dj_database_url.parse("postgres://found_ever_user:iqSxDItYZUpsXwIVUyILeVx4Cy5QXii6@dpg-cphhausf7o1s739j7ed0-a.oregon-postgres.render.com/found_ever")
+
+
+# postgres://found_ever_user:iqSxDItYZUpsXwIVUyILeVx4Cy5QXii6@dpg-cphhausf7o1s739j7ed0-a.oregon-postgres.render.com/found_ever
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -145,7 +151,12 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# LOGIN_REDIRECT_URL = '/home'
+# LOGIN_URL = '/login'

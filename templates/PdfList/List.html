@@ -13,6 +13,11 @@
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                     <h3 class="font-weight-bold">Welcome {{request.user.username}}</h3>
                     <h6 class="font-weight-normal mb-0">Take on your Task here</h6>
+                    {% if user.is_superuser %}
+                    <a href="{% url 'form_app:post_pdf' %}">Post Job</a>
+                    {% else %}
+                    {% endif %}
+
                 </div>
 
             </div>
@@ -31,79 +36,31 @@
                                     <th>Price</th>
                                     <th>Date Created</th>
                                     <th>Action</th>
+                                    <th>
+                                        {% if user.is_superuser %}
+                                        Delete
+                                        {% else %}
+                                        {% endif %}
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Search Engine Marketing</td>
-                                    <td class="font-weight-bold">&#8358; 362</td>
-                                    <td>21 Sep 2018</td>
-                                    <td class="font-weight-medium">
-                                        <a href="">
-                                            <div class="badge badge-success">Accept Task</div>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Search Engine Optimization</td>
-                                    <td class="font-weight-bold">$116</td>
-                                    <td>13 Jun 2018</td>
-                                    <td class="font-weight-medium">
-                                        <a href="">
-                                            <div class="badge badge-success">Accept Task</div>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Display Advertising</td>
-                                    <td class="font-weight-bold">$551</td>
-                                    <td>28 Sep 2018</td>
-                                    <td class="font-weight-medium">
-                                        <a href="">
-                                            <div class="badge badge-success">Accept Task</div>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Pay Per Click Advertising</td>
-                                    <td class="font-weight-bold">&#8358; 523</td>
-                                    <td>30 Jun 2018</td>
-                                    <td class="font-weight-medium">
-                                        <a href="">
-                                            <div class="badge badge-success">Accept Task</div>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>E-Mail Marketing</td>
-                                    <td class="font-weight-bold">&#8358; 781</td>
-                                    <td>01 Nov 2018</td>
-                                    <td class="font-weight-medium">
-                                        <a href="">
-                                            <div class="badge badge-success">Accept Task</div>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Referral Marketing</td>
-                                    <td class="font-weight-bold">&#8358; 283</td>
-                                    <td>20 Mar 2018</td>
-                                    <td class="font-weight-medium">
-                                        <a href="">
-                                            <div class="badge badge-success">Accept Task</div>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Social media marketing</td>
-                                    <td class="font-weight-bold">&#8358; 897</td>
-                                    <td>26 Oct 2018</td>
-                                    <td class="font-weight-medium">
-                                        <a href="">
-                                            <div class="badge badge-success">Accept Task</div>
-                                        </a>
-                                    </td>
-                                </tr>
+                            {% for post in posts %}
+                            <tr>
+                                <th><a href="{{post.get_absolute_url}}">{{post.pdf_name}}</a></th>
+                                <th>{{post.price}}</th>
+                                <th>{{post.posted_on}}</th>
+                                <th>
+                                    <a href="{% url 'form_app:display_pdf' post.pk %}" target="_blank" class="badge badge-success">Accept task</a>
+                                </th>
+                                <th>
+                                {% if user.is_superuser %}
+                                <a href="{{post.get_absolute_url}}">delete</a>
+                                {% else %}
+                                {% endif %}
+                                </th>
+                            </tr>
+                            {% endfor %}
                             </tbody>
                         </table>
                     </div>

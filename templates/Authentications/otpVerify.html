@@ -53,9 +53,34 @@
               <div class="brand-logo">
                 <img src="{% static 'images/found_ever.jpg' %}" alt="logo">
               </div>
+              <style>
+                .noaccess{
+                        display: flex;
+                        width: 500px;
+                        background-color: rgb(121, 121, 121);
+                        font-family:Arial, Helvetica, sans-serif;
+                        position: absolute;
+                        left: 20px;
+                        top: 90px;
+                        border-radius: 10px;
+                        font-size: small;
+                        padding-top: 5px;
+                        align-items: center;
+                        justify-content: center;
+}
+    </style>
+    <script>
+      setTimeout(function() {
+      var message = document.querySelector('.noaccess');
+      if (message) {
+          message.remove();
+      }
+  }, 5000
+  );
+  </script>
                 {% if messages %}
                 {% for message in messages %}
-                <p>{{message}}</p>
+                <span class="noaccess"><p>{{message}}</p></span>
                 {% endfor %}
                 {% endif %}
               <h4>Hello! Verify Your Email</h4>

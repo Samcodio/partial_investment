@@ -13,10 +13,35 @@
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                     <h6 class="font-weight-normal mb-0">Top up Wallet balance here</h6>
                 </div>
-
+                <div>
+                    <style>
+                        .noaccess{
+                                display: flex;
+                                width: 120px;
+                                background-color: rgb(121, 121, 121);
+                                font-family:Arial, Helvetica, sans-serif;
+                                position: absolute;
+                                left: 100px;
+                                top: 90px;
+                                border-radius: 10px;
+                                font-size: small;
+                                padding-top: 5px;
+                                align-items: center;
+                                justify-content: center;
+}
+            </style>
+          <script>
+setTimeout(function() {
+var message = document.querySelector('.noaccess');
+if (message) {
+    message.remove();
+}
+}, 5000
+);
+</script>
                 {% if messages %}
                 {% for message in messages %}
-                <p>{{message}}</p>
+                <span class="noaccess"><p>{{message}}</p></span>
                 {% endfor %}
                 {% endif %}
                 <div class="col-12 col-xl-4">
@@ -43,7 +68,7 @@
             <div class="col-md-4 mb-4 stretch-card transparent">
                 <div class="card card-tale">
                     <div class="card-body">
-                        <p class="mb-4"> Aamir Total Wallet Balance</p>
+                        <p class="mb-4">Total Wallet Balance</p>
                         <form action="" method="POST">
                             {% csrf_token %}
 <!--                        <div class="d-flex flex-wrap justify-content-between mb-4">-->
