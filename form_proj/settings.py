@@ -97,8 +97,11 @@ WSGI_APPLICATION = 'form_proj.wsgi.application'
 #     }
 # }
 
-DATABASES["default"] = dj_database_url.parse("postgres://found_ever_user:iqSxDItYZUpsXwIVUyILeVx4Cy5QXii6@dpg-cphhausf7o1s739j7ed0-a.oregon-postgres.render.com/found_ever")
+database_url ="postgres://found_ever_user:iqSxDItYZUpsXwIVUyILeVx4Cy5QXii6@dpg-cphhausf7o1s739j7ed0-a.oregon-postgres.render.com/found_ever"
 
+DATABASES = {
+    "default": dj_database_url.parse(database_url)
+}
 
 # postgres://found_ever_user:iqSxDItYZUpsXwIVUyILeVx4Cy5QXii6@dpg-cphhausf7o1s739j7ed0-a.oregon-postgres.render.com/found_ever
 
