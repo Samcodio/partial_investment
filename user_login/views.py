@@ -36,7 +36,7 @@ def login_user(request):
             login(request, user)
             return redirect('form_app:home')
         else:
-            messages.error(request, 'Invalid details')
+            messages.info(request, 'Invalid details')
     context = {}
     return render(request, 'Authentications/login.html', context)
 
