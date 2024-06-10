@@ -4,6 +4,7 @@ from .forms import *
 from django.contrib import messages
 from django.http import HttpResponse
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
@@ -15,7 +16,7 @@ def home(request):
     context = {}
     return render(request, 'Users/dashboard.html', context)
 
-
+@login_required()
 def list_pdf(request):
     # get_pdf = get_object_or_404(Post_pdf)
     posts = Post_pdf.objects.all()
@@ -29,12 +30,12 @@ def list_pdf(request):
     }
     return render(request, 'PdfList/List.html', context)
 
-
+@login_required()
 def settings(request):
     context = {}
     return render(request, 'form_app/settings.html', context)
 
-
+@login_required()
 def post_pdf(request):
     form = post_form()
     if request.method == 'POST':
@@ -54,9 +55,9 @@ def post_pdf(request):
 
 def pdf_details(request, pk):
     pdfdetails = get_object_or_404(Post_pdf, pk=pk)
-    pdf_page = pdfdetails.pdf_file
-    response = HttpResponse(pdf_page.read(), content_type='application/pdf')
-    return response
+    # pdf_page = pdfdetails.pdf_file
+    # response = HttpResponse(pdf_page.read(), content_type='application/pdf')
+    # return response
     if request.method == 'POST':
         pdfdetails.delete()
         return redirect('form_app:list_pdf')
@@ -64,6 +65,17 @@ def pdf_details(request, pk):
         'pdfdetails': pdfdetails
     }
     return render(request, 'form_app/Posts/details.html', context)
+
+
+def display_pdf(request, pk):
+    pdf_content = get_object_or_404(Post_pdf, pk=pk)
+    pdf = pdf_content.pdf_file
+    response = HttpResponse(pdf.read(), content_type='application/pdf')
+    return response
+    context = {
+        'pdf_content': pdf_content
+    }
+    return render(request, 'form_app/Posts/display_pdf.html', context)
 
 
 def verify_email(request, username):
@@ -126,7 +138,7 @@ def resend_otp(request):
     context = {}
     return render(request, 'form_app/Verification/resend.html', context)
 
-
+@login_required()
 def profile_page(request):
     userdetails = request.user
 
@@ -155,7 +167,7 @@ def profile_page(request):
     }
     return render(request, 'Users/profile.html', context)
 
-
+@login_required()
 def edit_profile(request):
     profileform = EditProfileInfo(instance=request.user)
     if request.method == 'POST':
@@ -173,7 +185,7 @@ def edit_profile(request):
      }
     return render(request, 'Users/setting.html', context)
 
-
+@login_required()
 def user_amnt(request, pk):
     amnt = get_object_or_404(UserAmount, pk=pk)
     context = {
@@ -181,7 +193,7 @@ def user_amnt(request, pk):
     }
     return render(request, 'form_app/User_amount/user_amount.html', context)
 
-
+@login_required()
 def list_users(request):
     listusers = CustomUser.objects.all()
     count = listusers.count
@@ -191,7 +203,7 @@ def list_users(request):
     }
     return render(request, 'Admin/userList.html', context)
 
-
+@login_required()
 def adjust_amount(request, pk):
     current_amount = get_object_or_404(UserAmount, pk=pk)
     updforum = AdjustAmount(instance=current_amount)

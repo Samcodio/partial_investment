@@ -56,7 +56,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="{% static 'css/vertical-layout-light/style.css' %}">
   <!-- endinject -->
-  <link rel="shortcut icon" href="{% static 'images/found_ever.jpg' %}" />
+  <link rel="shortcut icon" href="{% static 'images/found_ever_logo2.jpeg' %}" />
 </head>
 
 <body>
@@ -67,11 +67,36 @@
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
               <div class="brand-logo">
-                <img src="{% static 'images/found_ever.jpg' %}" alt="logo">
+                <a href="{% url 'form_app:home' %}"><img src="{% static 'images/found_ever.jpg' %}" alt="logo"></a>
               </div>
+              <style>
+                                .noaccess{
+                                        display: flex;
+                                        width: 120px;
+                                        background-color: rgb(121, 121, 121);
+                                        font-family:Arial, Helvetica, sans-serif;
+                                        position: absolute;
+                                        left: 100px;
+                                        top: 90px;
+                                        border-radius: 10px;
+                                        font-size: small;
+                                        padding-top: 5px;
+                                        align-items: center;
+                                        justify-content: center;
+        }
+                    </style>
+                  <script>
+        setTimeout(function() {
+        var message = document.querySelector('.noaccess');
+        if (message) {
+            message.remove();
+        }
+    }, 5000
+    );
+    </script>
                         {% if messages %}
                         {% for message in messages %}
-                        <p>{{message}}</p>
+                        <span class="noaccess"><p>{{message}}</p></span>
                         {% endfor %}
                         {% endif %}
               <h4>Hello! let's get started</h4>
@@ -89,16 +114,16 @@
                 </div>
                 <div class="my-2 d-flex justify-content-between align-items-center">
                   <div class="form-check">
-                    <label class="form-check-label text-muted">
-                      <input type="checkbox" class="form-check-input">
-                      Keep me signed in
-                    </label>
+<!--                    <label class="form-check-label text-muted">-->
+<!--                      <input type="checkbox" class="form-check-input">-->
+<!--                      Keep me signed in-->
+<!--                    </label>-->
                   </div>
                 </div>
                 <div class="mb-2">
-                  <button type="button" class="btn btn-block btn-facebook auth-form-btn">
-                    <i class="ti-facebook mr-2"></i>Connect using facebook
-                  </button>
+<!--                  <button type="button" class="btn btn-block btn-facebook auth-form-btn">-->
+<!--                    <i class="ti-facebook mr-2"></i>Connect using facebook-->
+<!--                  </button>-->
                 </div>
                 <div class="text-center mt-4 font-weight-light">
                   Don't have an account? <a href="{% url 'user_login:registration' %}" class="text-primary">Create</a>

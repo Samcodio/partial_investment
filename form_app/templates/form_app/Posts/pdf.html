@@ -12,7 +12,7 @@
 {% else %}
 {% endif %}
 {% for post in posts %}
-<a href="{{post.get_absolute_url}}" target="_blank">{{post.pdf_name}}</a><br>
+<a href="{{post.get_absolute_url}}" target="_blank">{{post.pdf_name}}</a>    {{post.price}}<br>
 <!--<embed src="{{post.pdf_part.url}}#toolbar=0&view=fitH" height="300px" width="300px">{{post.pdf_file}}<br>-->
 {{post.posted_on}}<br>
 <br>

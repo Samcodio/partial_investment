@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="{% static 'vendors/ti-icons/css/themify-icons.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'js/select.dataTables.min.css' %}">
   <link rel="stylesheet" href="{% static 'css/vertical-layout-light/style.css' %}">
-  <link rel="shortcut icon" href="{% static 'images/found_ever_logo.jpg' %}" />
+  <link rel="shortcut icon" href="{% static 'images/found_ever_logo2.jpeg' %}" />
 </head>
 <body>
   <div class="container-scroller">
@@ -35,18 +35,18 @@
             <div class="input-group">
               <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
                 <span class="input-group-text" id="search">
-                  <i class="icon-search"></i>
+<!--                  <i class="icon-search"></i>-->
                 </span>
               </div>
-              <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+<!--              <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">-->
             </div>
           </li>
         </ul>
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-              <i class="icon-bell mx-0"></i>
-              <span class="count"></span>
+<!--              <i class="icon-bell mx-0"></i>-->
+<!--              <span class="count"></span>-->
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
               <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
@@ -94,20 +94,9 @@
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
 <!--              <img src="{% static 'images/found_ever_logo.jpg' %}" alt="profile"/>-->
-              <i class="ti-settings text-primary"></i>
+              <i class="ti-power-off menu-icon"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              {% if user.is_authenticated %}
-              <a class="dropdown-item" href="{% url 'form_app:settings' %}">
-<!--                <i class="ti-settings text-primary"></i>-->
-                Settings
-              </a>
-              {% else %}
-              <a class="dropdown-item" href="{% url 'user_login:login' %}">
-<!--                <i class="ti-settings text-primary"></i>-->
-                Settings
-              </a>
-              {% endif %}
               {% if user.is_authenticated %}
               <a class="dropdown-item" href="{% url 'user_login:logout' %}">
 <!--                <i class="ti-power-off text-primary"></i>-->
@@ -125,9 +114,9 @@
               </a>
             </div>
           </li>
-          <li class="nav-item nav-settings d-none d-lg-flex">
-            <a class="nav-link" href="#">
-              <i class="icon-ellipsis"></i>
+<!--          <li class="nav-item nav-settings d-none d-lg-flex">-->
+<!--            <a class="nav-link" href="#">-->
+<!--              <i class="icon-ellipsis"></i>-->
             </a>
           </li>
         </ul>
@@ -331,6 +320,12 @@
 <!--              <i class="icon-grid menu-icon"></i>-->
               <span class="menu-title">Customer Care</span>
             </a>
+          </li>
+          <li class="nav-item">
+          {% if user.is_superuser %}
+            <a class="nav-link" href="{% url 'form_app:list_users' %}"><span class="menu-title">User list</span></a>
+    {% else %}
+    {% endif %}
           </li>
           <li class="nav-item">
             {% if user.is_authenticated %}

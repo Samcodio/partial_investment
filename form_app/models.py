@@ -61,7 +61,8 @@ class Post_pdf(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     pdf_name = models.CharField(max_length=50)
     pdf_file = models.FileField(upload_to='pdfs/')
-    posted_on = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    price = models.IntegerField(null=True, blank=True)
+    posted_on = models.DateField(auto_now_add=True, null=True, blank=True)
 
     def __str__(self):
         return self.pdf_name
