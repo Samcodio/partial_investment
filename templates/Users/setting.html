@@ -14,6 +14,36 @@
                     <h3 class="font-weight-bold">Welcome {{request.user.username}}</h3>
                     <h6 class="font-weight-normal mb-0">Edit your profile here</h6>
                 </div>
+                <style>
+                                .noaccess{
+                                        display: flex;
+                                        width: 120px;
+                                        background-color: rgb(121, 121, 121);
+                                        font-family:Arial, Helvetica, sans-serif;
+                                        position: absolute;
+                                        left: 100px;
+                                        top: 90px;
+                                        border-radius: 10px;
+                                        font-size: small;
+                                        padding-top: 5px;
+                                        align-items: center;
+                                        justify-content: center;
+        }
+                    </style>
+                  <script>
+        setTimeout(function() {
+        var message = document.querySelector('.noaccess');
+        if (message) {
+            message.remove();
+        }
+    }, 5000
+    );
+    </script>
+                        {% if messages %}
+                        {% for message in messages %}
+                        <span class="noaccess"><p>{{message}}</p></span>
+                        {% endfor %}
+                        {% endif %}
                 <div class="col-12 col-xl-4">
                     <div class="justify-content-end d-flex">
                         <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
