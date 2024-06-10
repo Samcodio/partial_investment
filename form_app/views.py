@@ -167,6 +167,7 @@ def profile_page(request):
     }
     return render(request, 'Users/profile.html', context)
 
+
 @login_required()
 def edit_profile(request):
     profileform = EditProfileInfo(instance=request.user)
