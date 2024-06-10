@@ -82,18 +82,18 @@ WSGI_APPLICATION = 'form_proj.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-# database_url ="postgres://found_ever_user:iqSxDItYZUpsXwIVUyILeVx4Cy5QXii6@dpg-cphhausf7o1s739j7ed0-a.oregon-postgres.render.com/found_ever"
-
 # DATABASES = {
-#     "default": dj_database_url.parse(database_url)
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
 # }
+
+database_url ="postgres://found_ever_user:iqSxDItYZUpsXwIVUyILeVx4Cy5QXii6@dpg-cphhausf7o1s739j7ed0-a.oregon-postgres.render.com/found_ever"
+
+DATABASES = {
+    "default": dj_database_url.parse(database_url)
+}
 
 # postgres://found_ever_user:iqSxDItYZUpsXwIVUyILeVx4Cy5QXii6@dpg-cphhausf7o1s739j7ed0-a.oregon-postgres.render.com/found_ever
 
