@@ -24,7 +24,7 @@ class EditProfileInfo(ModelForm):
                                                 'id': 'exampleInputLastName', 'placeholder': 'Last Name'}),
             'bank_name': TextInput(attrs={'class': 'form-control form-control-lg',
                                             'required': 'true', 'type': 'text',
-                                            'id': 'exampleInputEmail', 'placeholder': 'Email'}),
+                                            'id': 'exampleInputBankName', 'placeholder': 'Bank Name'}),
             'account_number': TextInput(attrs={'class': 'form-control form-control-lg',
                                                      'required': 'true',
                                                      'id': 'exampleInputAccountNumber',
