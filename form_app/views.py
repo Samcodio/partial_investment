@@ -116,8 +116,8 @@ def resend_otp(request):
             message = f"""
                                     Hello, {user.username}
                                     Your OTP is {otp.otp_code}
-                                    It expires in 5 minutes. Use the link to return to the webpage\n
-                                    http://1270.0.0.1.8000/verify-email/{user.username}
+                                    It expires in 5 minutes.
+                                    
                             """
             sender = "nosikesamuel1@gmail.com"
             receiver = [user.email, ]
