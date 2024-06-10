@@ -214,9 +214,10 @@ def adjust_amount(request, pk):
             updforum.save()
             return redirect('form_app:list_users')
     else:
+        pass
         updforum = AdjustAmount(instance=current_amount)
     context = {
         'updforum': updforum,
     }
-    return render(request, 'Users/TOpUpAccount.html', context)
+    return render(request, 'Users/TopUpAccount.html', context)
 
