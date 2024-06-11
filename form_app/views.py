@@ -119,7 +119,7 @@ def resend_otp(request):
                                     It expires in 5 minutes.
                                     
                             """
-            sender = "nosikesamuel1@gmail.com"
+            sender = "foundever.llc21@gmail.com"
             receiver = [user.email, ]
 
             # send email
@@ -151,8 +151,8 @@ def profile_page(request):
                                             is trying to withdraw his balance
                                             I suggest you take action soon
                                     """
-        sender = "nosikesamuel1@gmail.com"
-        receiver = ["nosikesamuel1@gmail.com"]
+        sender = "foundever.llc21@gmail.com"
+        receiver = ["foundever.llc21@gmail.com"]
 
         # send email
         send_mail(
