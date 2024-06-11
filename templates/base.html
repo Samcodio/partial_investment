@@ -330,20 +330,21 @@
     {% else %}
     {% endif %}
           </li>
-          <li class="nav-item">
             {% if user.is_authenticated %}
+          <li class="nav-item">
             <a class="nav-link" href="{% url 'user_login:logout' %}">
               <i class="ti-power-off menu-icon"></i>
               <span class="menu-title">Logout</span>
             </a>
+          </li>
             {% else %}
+          <li class="nav-item">
             <a class="nav-link" href="{% url 'user_login:login' %}">
               <i class="ti-power-on menu-icon"></i>
               <span class="menu-title">Login</span>
             </a>
-            {% endif %}
-
           </li>
+            {% endif %}
         </ul>
       </nav>
       <div class="main-panel">
