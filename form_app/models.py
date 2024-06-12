@@ -43,6 +43,12 @@ class CustomUser(AbstractUser):
         ('Dubai Islamic Bank', 'Dubai Islamic Bank'),
         ('Mashreq Bank', 'Mashreq Bank'),
         ('Union National Bank', 'Union National Bank'),
+        ('Standard Bank', 'Standard Bank'),
+        ('FirstRand Limited', 'FirstRand Limited'),
+        ('Absa group', 'Absa group'),
+        ('Nedbank', 'Nedbank'),
+        ('Investec Bank', 'Investec bank'),
+        ('Capital Bank', 'Capital Bank'),
     ]
     email = models.EmailField(unique=True)
     bank_name = models.CharField(max_length=50, choices=Status_choices)
