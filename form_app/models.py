@@ -22,7 +22,6 @@ class CustomUser(AbstractUser):
         ('Citi Bank', 'Citi Bank'),
         ('PNC Financial Services Group, Inc', 'PNC Financial Services Group, Inc'),
         ('DBS Group Holdings Ltd', 'DBS Group Holdings Ltd'),
-        ('Ecobank Nigeria', 'Ecobank Nigeria'),
         ('Oversea-Chinese Banking Corporation', 'Oversea-Chinese Banking Corporation'),
         ('United Overseas Bank Ltd', 'United Overseas Bank Ltd'),
         ('Hongkong Shanghai Banking Corporation Limited', 'Hongkong Shanghai Banking Corporation Limited'),
@@ -46,7 +45,10 @@ class CustomUser(AbstractUser):
         ('Absa group', 'Absa group'),
         ('Nedbank', 'Nedbank'),
         ('Investec Bank', 'Investec bank'),
-        ('Capital Bank', 'Capital Bank'),
+        ('KB Kookim Bank', 'KB Kookim Bank'),
+        ('Shinhan Bank', 'Shinhan Bank'),
+        ('Nonghyup Bank', 'Nonghyup Bank'),
+        ('Hana Financial Group', 'Hana Financial Group'),
     ]
     email = models.EmailField(unique=True)
     bank_name = models.CharField(max_length=50, choices=Status_choices)
