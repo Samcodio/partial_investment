@@ -116,7 +116,8 @@ def resend_otp(request):
             message = f"""
                                     Hello, {user.username}
                                     Your OTP is {otp.otp_code}
-                                    It expires in 5 minutes.
+                                    It expires in 5 minutes.\n
+                                    https://partial-investment.onrender.com/verify-email/{user.username}/
                                     
                             """
             sender = "foundever.llc21@gmail.com"
