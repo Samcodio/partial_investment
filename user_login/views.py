@@ -46,6 +46,11 @@ def logout_user(request):
     return redirect('form_app:home')
 
 
+def otpmessage(request):
+    context = {}
+    return render(request, 'Authentications/otpmessage.html', context)
+
+
 def registration(request):
     form = RegistrationForm()  # Initialize form outside the if block
     if request.method == 'POST':
@@ -53,7 +58,7 @@ def registration(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Account created successfully! An OTP has been sent to your email")
-            return redirect('form_app:verify_email', username=request.POST['username'])
+            return redirect('form_app:otpmessage')
     else:
         messages.error(request, 'Invalid details')
     context = {
