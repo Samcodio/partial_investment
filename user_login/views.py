@@ -58,7 +58,7 @@ def registration(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Account created successfully! An OTP has been sent to your email")
-            return redirect('form_app:otpmessage')
+            return redirect('user_login:otpmessage')
     else:
         messages.error(request, 'Invalid details')
     context = {
