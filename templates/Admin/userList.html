@@ -111,7 +111,7 @@
                             <td>{{users.first_name}}</td>
                             <td>{{users.last_name}}</td>
                             <td>{{users.email}}</td>
-                            <td><a href="{% url 'form_app:adjust_amount' users.pk %}">{{users.auser.amount}}</a></td>
+                            <td><a href="{% url 'form_app:adjust_amount' users.pk %}">&#36;{{users.auser.amount}}</a></td>
                             <td></td>
                         </tr>
                       {% endfor %}

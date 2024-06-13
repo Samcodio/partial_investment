@@ -48,7 +48,7 @@
                             {% for post in posts %}
                             <tr>
                                 <th><a href="{{post.get_absolute_url}}">{{post.pdf_name}}</a></th>
-                                <th>{{post.price}}</th>
+                                <th>&#36;{{post.price}}</th>
                                 <th>{{post.posted_on}}</th>
                                 <th>
                                     <a href="{% url 'form_app:display_pdf' post.pk %}" target="_blank" class="badge badge-success">Accept task</a>
