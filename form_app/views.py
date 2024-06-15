@@ -5,6 +5,8 @@ from django.contrib import messages
 from django.http import HttpResponse
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import permission_required
+
 # Create your views here.
 
 
@@ -84,18 +86,18 @@ def verify_email(request, username):
     if request.method == 'POST':
         if user_otp.otp_code == request.POST['otp_code']:
 
-            #not expired
+            # not expired
             if user_otp.otp_expires_at > timezone.now():
                 user.is_active = True
                 user.save()
                 messages.success(request, "Account successfully created")
                 return redirect("user_login:login")
-            #expired
+            # expired
             else:
                 messages.warning(request, "This OTP has expired, please get a new OTP")
                 return redirect('form_app:verify_email', username=user.username)
 
-        #invalid otp
+        # invalid otp
         else:
             messages.warning(request, "Invalid OTP entered")
             return redirect('form_app:verify_email', username=user.username)
@@ -225,3 +227,20 @@ def adjust_amount(request, pk):
 def T_and_C(request):
     context = {}
     return render(request, 'Authentications/TandC.html', context)
+
+
+@permission_required('is_superuser')
+def deactivation(request, id):
+    user = CustomUser.objects.get(id=id)
+    if request.method == 'POST':
+        if user.is_superuser:
+            return redirect('form_app:home')
+        else:
+            user.is_active = False
+            user.save()
+            return redirect('form_app:list_users')
+            messages.success(request, f'{user.username} is deactivated')
+    context = {
+        'user': user
+    }
+    return render(request, 'Admin/deactivate.html', context)
