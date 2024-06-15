@@ -17,7 +17,8 @@ urlpatterns = [
     path('withdrawal-page/<int:pk>/', views.user_amnt, name='user_amount'),
     path('adjust-_-amount/<int:pk>/', views.adjust_amount, name='adjust_amount'),
     path('settings/', views.settings, name='settings'),
-    path('pdf/<int:pk>', views.display_pdf, name='display_pdf')
+    path('pdf/<int:pk>', views.display_pdf, name='display_pdf'),
+    path('T&Cs', views.T_and_C, name='Terms_and_conditions'),
     # path('TopUpAccount/', views.TopUpAccount, name='TopUpAccount'),
 
 ]

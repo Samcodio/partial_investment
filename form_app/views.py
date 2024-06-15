@@ -221,3 +221,7 @@ def adjust_amount(request, pk):
     }
     return render(request, 'Users/TopUpAccount.html', context)
 
+
+def T_and_C(request):
+    context = {}
+    return render(request, 'Authentications/TandC.html', context)
