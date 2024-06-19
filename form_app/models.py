@@ -73,6 +73,7 @@ class Otptoken(models.Model):
 
 
 class Post_pdf(models.Model):
+
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     pdf_name = models.CharField(max_length=50)
     pdf_file = models.FileField(upload_to='pdfs/')
@@ -90,7 +91,17 @@ class Post_pdf(models.Model):
 
 
 class UserAmount(models.Model):
+    STATUS_CHOICES = [('\u00A3', '\u00A3'),
+                      ('\u0024', '\u0024'),
+                      ('\u20B1', '\u20B1'),
+                      ('S\u0024', 'S\u0024'),
+                      ('\u0E3F', '\u0E3F'),
+                      ('\u062F\u002E\u0625', '\u062F\u002E\u0625'),
+                      ('R', 'R'),
+                      ('AU\u0024', 'AU\u0024'),
+                      ]
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='auser')
+    currency = models.CharField(max_length=30, default='\u0024', null=True, blank=True, choices=STATUS_CHOICES)
     amount = models.IntegerField(null=True, blank=True)
 
     def __int__(self):

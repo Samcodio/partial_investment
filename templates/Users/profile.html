@@ -155,7 +155,7 @@
                         {% endif %}
                             <div class="d-flex flex-wrap justify-content-between mb-4">
 
-                                <p class="fs-30 mb-2">&#36;{{userdetails.auser.amount}}</p>
+                                <p class="fs-30 mb-2">{{userdetails.auser.currency}}{{userdetails.auser.amount}}</p>
                                 <form action="" method="POST">
                                     {% csrf_token %}
                             <button type="submit" class="btn btn-success">CashOut</button>

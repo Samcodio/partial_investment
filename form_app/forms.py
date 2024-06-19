@@ -37,5 +37,5 @@ class EditProfileInfo(ModelForm):
 class AdjustAmount(ModelForm):
     class Meta:
         model = UserAmount
-        fields = ['amount']
+        fields = ['amount', 'currency']
 
