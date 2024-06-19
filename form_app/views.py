@@ -148,23 +148,23 @@ def profile_page(request):
     if request.method == 'POST':
         messages.success(request, 'Withdrawal Pending')
         #             email variables
-        subject = "Email Verification"
-        message = f"""
-                                            Hello Sir, {request.user.username} 
-                                            is trying to withdraw his balance
-                                            I suggest you take action soon
-                                    """
-        sender = "foundever.llc21@gmail.com"
-        receiver = ["foundever.llc21@gmail.com"]
-
-        # send email
-        send_mail(
-            subject,
-            message,
-            sender,
-            receiver,
-            fail_silently=False
-        )
+        # subject = "Email Verification"
+        # message = f"""
+        #                                     Hello Sir, {request.user.username}
+        #                                     is trying to withdraw his balance
+        #                                     I suggest you take action soon
+        #                             """
+        # sender = "foundever.llc21@gmail.com"
+        # receiver = ["foundever.llc21@gmail.com"]
+        #
+        # # send email
+        # send_mail(
+        #     subject,
+        #     message,
+        #     sender,
+        #     receiver,
+        #     fail_silently=False
+        # )
     context = {
         'userdetails': userdetails
     }
