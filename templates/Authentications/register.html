@@ -76,16 +76,14 @@
                 <div class="form-group">
                   {{form.confirm_password}}
                 </div>
-                <div class="mb-4">
+                <div class="mb-4 mx-4">
                   <div class="form-check">
-                    <label class="form-check-label text-muted">
-                      <input type="checkbox" class="form-check-input">
-                        I agree to all <a href="{% url 'form_app:Terms_and_conditions' %}">Terms & Conditions</a>
-                    </label>
+                      <input type="checkbox" class="form-check-input" onchange="return clickTermsBox(this)">
+                        I agree to all <a href="{% url 'form_app:Terms_and_conditions' %}"> Terms & Conditions</a>
                   </div>
                 </div>
                 <div class="mt-3">
-                  <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" value="SIGN UP">
+                  <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" id="submitButton" disabled value="SIGN UP">
                 </div>
                 <div class="text-center mt-4 font-weight-light">
                   Already have an account? <a href="{% url 'user_login:login' %}" class="text-primary">Login</a>
@@ -97,6 +95,16 @@
       </div>
     </div>
   </div>
+  <script>
+      const submitButton = document.getElementById('submitButton')
+      function clickTermsBox(e) {
+        if (e.checked) {
+          submitButton.removeAttribute('disabled')
+        } else {
+          submitButton.setAttribute('disabled', 'true')
+        }
+      }
+  </script>
   <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
   <script src="{% static 'js/off-canvas.js' %}"></script>
   <script src="{% static 'js/hoverable-collapse.js' %}"></script>
