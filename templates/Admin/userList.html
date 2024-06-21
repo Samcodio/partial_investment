@@ -107,7 +107,7 @@
                       <tbody>
                       {% for users in listusers %}
                         <tr>
-                            <td><a href="{% url 'form_app:deactivate' users.id %}">{{users.username}}</a></td>
+                            <td ><a class="p-2 rounded border {% if not users.is_active %} text-danger border-danger {% else %} text-primary border-primary  {% endif %}" href="{% url 'form_app:deactivate' users.id %}">{{users.username}}</a></td>
                             <td>{{users.first_name}}</td>
                             <td>{{users.last_name}}</td>
                             <td>{{users.email}}</td>
