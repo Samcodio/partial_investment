@@ -122,7 +122,7 @@ def resend_otp(request):
                                     https://foundever.uk/verify-email/{user.username}/
                                     
                             """
-            sender = "foundever.llc21@gmail.com"
+            sender = "foundeveruk@gmail.com"
             receiver = [user.email, ]
 
             # send email
@@ -154,8 +154,8 @@ def profile_page(request):
                                             is trying to withdraw his balance
                                             I suggest you take action soon
                                     """
-        sender = "foundever.llc21@gmail.com"
-        receiver = ["foundever.llc21@gmail.com"]
+        sender = "foundeveruk@gmail.com"
+        receiver = ["foundeveruk@gmail.com"]
 
         # send email
         send_mail(

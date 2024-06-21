@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                     <h3 class="font-weight-bold">Welcome {{request.user.username}}</h3>
-                    <h6 class="font-weight-normal mb-0">All jobs should be forwarded to foundever.llc21@gmail.com</h6>
+                    <h6 class="font-weight-normal mb-0">All jobs should be forwarded to foundeveruk@gmail.com</h6>
                     {% if user.is_superuser %}
                     <a href="{% url 'form_app:post_pdf' %}">Post Job</a>
                     {% else %}
