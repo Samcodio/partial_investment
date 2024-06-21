@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'form_app',
     'user_login',
+    'storages',
 ]
 
 AUTH_USER_MODEL = 'form_app.CustomUser'
@@ -146,6 +147,17 @@ EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 
 
+# AWS S3 Configuration
+AWS_ACCESS_KEY_ID = 'AKIA2UC27BOKBK57GZ6V'
+AWS_SECRET_ACCESS_KEY = 'y0KZUvARSbxPmErcoQ+9ejks0WnRKtHsXjrKQOYM'
+AWS_STORAGE_BUCKET_NAME = 'foundevermedia'
+AWS_S3_REGION_NAME = 'your-region-name'
+
+
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+AWS_DEFAULT_ACL = 'public-read'
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
@@ -156,6 +168,11 @@ STATICFILES_DIRS = (
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
+
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
+MEDIA_ROOT = os.path.join(BASE_DIR, f'https://{AWS_S3_CUSTOM_DOMAIN}/static/')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
