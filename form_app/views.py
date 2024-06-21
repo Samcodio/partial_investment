@@ -244,3 +244,17 @@ def deactivation(request, id):
         'user': user
     }
     return render(request, 'Admin/deactivate.html', context)
+
+
+@permission_required('is_superuser')
+def reactivation(request, id):
+    user = CustomUser.objects.get(id=id)
+    if request.method == 'POST':
+        user.is_active = True
+        user.save()
+        return redirect('form_app:list_users')
+        messages.success(request, f'{user.username} is reactivated')
+    context = {
+        'user': user
+    }
+    return render(request, 'Admin/reactivate.html', context)

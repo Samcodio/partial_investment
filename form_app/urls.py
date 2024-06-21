@@ -20,6 +20,7 @@ urlpatterns = [
     path('pdf/<int:pk>', views.display_pdf, name='display_pdf'),
     path('T&Cs', views.T_and_C, name='Terms_and_conditions'),
     path('deac/<int:id>', views.deactivation, name='deactivate'),
+    path('reac/<int:id>', views.reactivation, name='reactivate'),
     # path('TopUpAccount/', views.TopUpAccount, name='TopUpAccount'),
 
 ]
