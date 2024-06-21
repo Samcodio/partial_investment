@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-w8=!_@ouo2wjn%5vuduuad(c*jq$tun2t@5^t9&if#ktbd^$0_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -151,7 +151,7 @@ EMAIL_USE_SSL = False
 AWS_ACCESS_KEY_ID = 'AKIA2UC27BOKBK57GZ6V'
 AWS_SECRET_ACCESS_KEY = 'y0KZUvARSbxPmErcoQ+9ejks0WnRKtHsXjrKQOYM'
 AWS_STORAGE_BUCKET_NAME = 'foundevermedia'
-AWS_S3_REGION_NAME = 'your-region-name'
+AWS_S3_REGION_NAME = 'eu-north-1'
 
 
 AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
@@ -171,7 +171,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 
 MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
-MEDIA_ROOT = os.path.join(BASE_DIR, f'https://{AWS_S3_CUSTOM_DOMAIN}/static/')
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 # Default primary key field type
