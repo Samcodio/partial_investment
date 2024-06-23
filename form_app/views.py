@@ -119,9 +119,6 @@ def pdf_details(request, pk):
 
 def display_pdf(request, pk):
     pdf_content = get_object_or_404(Post_pdf, pk=pk)
-    pdf = pdf_content.pdf_file
-    response = HttpResponse(pdf.read(), content_type='application/pdf')
-    return response
     context = {
         'pdf_content': pdf_content
     }
