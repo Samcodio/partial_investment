@@ -35,7 +35,7 @@ def list_pdf(request):
     return render(request, 'PdfList/List.html', context)
 
 @login_required()
-def settings(request):
+def setting(request):
     context = {}
     return render(request, 'form_app/settings.html', context)
 
@@ -70,7 +70,7 @@ def post_pdf(request):
                     's3',
                     aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
                     aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
-                    region_name=settings.AWS_S3_REGION_NAME
+                    region_name=settings.AWS_S3_REGION_NAME,
                 )
 
                 # Define the file path in S3 bucket

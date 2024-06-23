@@ -23,8 +23,8 @@
   <div class="container-scroller">
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="{% url 'form_app:home' %}"><img src="{% static 'images/found_ever_logo.jpg' %}" class="mr-2" alt="logo"/>Found Ever</a>
-<!--        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{% static 'images/logo-mini.svg' %}" class="mr-2" alt="logo"/></a>-->
+        <a class="navbar-brand brand-logo mr-5" href="{% url 'form_app:home' %}"><img src="{% static 'images/found_ever.jpg' %}" class="mr-2" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini " href="{% url 'form_app:home' %}"><img src="{% static 'images/found_ever_logo.jpg' %}" class="mx-3"  alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -35,18 +35,18 @@
             <div class="input-group">
               <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
                 <span class="input-group-text" id="search">
-                  <i class="icon-search"></i>
+<!--                  <i class="icon-search"></i>-->
                 </span>
               </div>
-              <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+<!--              <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">-->
             </div>
           </li>
         </ul>
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-              <i class="icon-bell mx-0"></i>
-              <span class="count"></span>
+<!--              <i class="icon-bell mx-0"></i>-->
+<!--              <span class="count"></span>-->
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
               <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
@@ -94,20 +94,9 @@
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
 <!--              <img src="{% static 'images/found_ever_logo.jpg' %}" alt="profile"/>-->
-              <i class="ti-settings text-primary"></i>
+              <i class="ti-power-off menu-icon"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              {% if user.is_authenticated %}
-              <a class="dropdown-item" href="{% url 'form_app:settings' %}">
-<!--                <i class="ti-settings text-primary"></i>-->
-                Settings
-              </a>
-              {% else %}
-              <a class="dropdown-item" href="{% url 'user_login:login' %}">
-<!--                <i class="ti-settings text-primary"></i>-->
-                Settings
-              </a>
-              {% endif %}
               {% if user.is_authenticated %}
               <a class="dropdown-item" href="{% url 'user_login:logout' %}">
 <!--                <i class="ti-power-off text-primary"></i>-->
@@ -118,16 +107,17 @@
 <!--                <i class="ti-power-off text-primary"></i>-->
                 Login
               </a>
-              {% endif %}
               <a class="dropdown-item" href="{% url 'user_login:registration' %}">
 <!--                <i class="ti-power-off text-primary"></i>-->
                 Sign Up
               </a>
+              {% endif %}
+
             </div>
           </li>
-          <li class="nav-item nav-settings d-none d-lg-flex">
-            <a class="nav-link" href="#">
-              <i class="icon-ellipsis"></i>
+<!--          <li class="nav-item nav-settings d-none d-lg-flex">-->
+<!--            <a class="nav-link" href="#">-->
+<!--              <i class="icon-ellipsis"></i>-->
             </a>
           </li>
         </ul>
@@ -140,9 +130,9 @@
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_settings-panel.html -->
       <div class="theme-setting-wrapper">
-        <div id="settings-trigger"><i class="ti-settings"></i></div>
+<!--        <div id="settings-trigger"><i class="ti-settings"></i></div>-->
         <div id="theme-settings" class="settings-panel">
-          <i class="settings-close ti-close"></i>
+<!--          <i class="settings-close ti-close"></i>-->
           <p class="settings-heading">SIDEBAR SKINS</p>
           <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border mr-3"></div>Light</div>
           <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark</div>
@@ -308,70 +298,80 @@
       </div>
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
+                <a class="navbar-brand brand-logo-mini d-lg-none" href="{% url 'form_app:home' %}"><img src="{% static 'images/found_ever_logo.jpg' %}" width="40px" class="mx-3"  alt="logo"/>Found Ever</a>
+
           <li class="nav-item">
           <a class="nav-link" href="{% url 'form_app:home' %}">
-<!--              <i class="icon-grid menu-icon"></i>-->
+              <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
           <li class="nav-item">
           <a class="nav-link" href="{% url 'form_app:user_profile' %}">
-<!--              <i class="icon-grid menu-icon"></i>-->
+              <i class="ti-user menu-icon"></i>
               <span class="menu-title">View Profile</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'form_app:list_pdf' %}">
-<!--              <i class="icon-grid menu-icon"></i>-->
+              <i class="ti-package menu-icon"></i>
               <span class="menu-title">Job List</span>
             </a>
           </li>
           <li class="nav-item">
-          <a class="nav-link" href="">
-<!--              <i class="icon-grid menu-icon"></i>-->
+          <a class="nav-link" href="https://wa.link/j6ajio">
+              <i class="ti-help menu-icon"></i>
               <span class="menu-title">Customer Care</span>
             </a>
           </li>
           <li class="nav-item">
+          {% if user.is_superuser %}
+            <a class="nav-link" href="{% url 'form_app:list_users' %}"><i class="ti-user menu-icon"></i>
+<span class="menu-title">User list</span></a>
+    {% else %}
+    {% endif %}
+          </li>
             {% if user.is_authenticated %}
+          <li class="nav-item">
             <a class="nav-link" href="{% url 'user_login:logout' %}">
-<!--              <i class="ti-power-off menu-icon"></i>-->
+              <i class="ti-power-off menu-icon"></i>
               <span class="menu-title">Logout</span>
             </a>
+          </li>
             {% else %}
+          <li class="nav-item">
             <a class="nav-link" href="{% url 'user_login:login' %}">
-<!--              <i class="ti-power-off menu-icon"></i>-->
+              <i class="ti-power-off menu-icon"></i>
               <span class="menu-title">Login</span>
             </a>
-            {% endif %}
-
           </li>
+            {% endif %}
         </ul>
       </nav>
       <div class="main-panel">
         {% block content %}
-                        {% if messages %}
-                {% for message in messages %}
-                <p>{{message}}</p>
-                {% endfor %}
-                {% endif %}
+<!--                        {% if messages %}-->
+<!--                {% for message in messages %}-->
+<!--                <p>{{message}}</p>-->
+<!--                {% endfor %}-->
+<!--                {% endif %}-->
 
-<div style="
-            border: solid 5px black;
-            height: 300px;
-            width: 300px;
-">
-    {% if user.is_authenticated %}
-    {{request.user.auser.amount}}<br>
-  <form action="" method="POST">
-    {% csrf_token %}
-    <input type="submit" value="Withdraw">
-      {% else %}
-      0
-      {% endif %}
-  </form>
+<!--<div style="-->
+<!--            border: solid 5px black;-->
+<!--            height: 300px;-->
+<!--            width: 300px;-->
+<!--">-->
+<!--    {% if user.is_authenticated %}-->
+<!--    {{request.user.auser.amount}}<br>-->
+<!--  <form action="" method="POST">-->
+<!--    {% csrf_token %}-->
+<!--    <input type="submit" value="Withdraw">-->
+<!--      {% else %}-->
+<!--      0-->
+<!--      {% endif %}-->
+<!--  </form>-->
 
-</div>
+<!--</div>-->
         {% endblock %}
       <footer class="footer">
           <div class="d-sm-flex justify-content-center justify-content-sm-between">
@@ -380,9 +380,9 @@
           <div class="d-sm-flex justify-content-center justify-content-sm-between">
             <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Manageed by Found Ever</span>
           </div>
-      </footer> 
+      </footer>
       </div>
-    </div>   
+    </div>
   </div>
   <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
   <script src="{% static 'vendors/datatables.net-bs4/dataTables.bootstrap4.js' %}"></script>
