@@ -84,6 +84,15 @@ def post_pdf(request):
                         ExtraArgs = {'ACL': 'public-read'}
                     )
 
+                    pdf_url = s3_client.generate_presigned_url(
+                        'get_object',
+                        Params={
+                            'Bucket': settings.AWS_STORAGE_BUCKET_NAME,
+                            'Key': file_path
+                        },
+                        ExpiresIn=99999999999  # URL expiration time in seconds
+                    )
+
                     # If upload is successful, save the URL to the model instance
                     instance = form.save(commit=False)
                     instance.user = request.user
