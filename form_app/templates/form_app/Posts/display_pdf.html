@@ -1,10 +1,50 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Found Ever</title>
+  <link rel="stylesheet" href="{% static 'vendors/feather/feather.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/ti-icons/css/themify-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
+  <link rel="stylesheet" href="{% static 'css/vertical-layout-light/style.css' %}">
+  <link rel="shortcut icon" href="{% static 'images/found_ever_logo.jpg' %}" />
 </head>
+
 <body>
-        <a href="{{ post.pdf_url }}">Download PDF</a>
+  <div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="content-wrapper d-flex align-items-center auth px-0">
+        <div class="row w-100 mx-0">
+          <div class="col-lg-4 mx-auto">
+            <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+              <div class="brand-logo">
+                <a href="{% url 'form_app:home' %}"><img src="{% static 'images/found_ever.jpg' %}" alt="logo"></a>
+              </div>
+                <!-- display_pdf.html -->
+<object data="{{ pdf_content.pdf_url }}" type="application/pdf" width="100%" height="10">
+    <embed src="{{ pdf_content.pdf_url }}" type="application/pdf" width="100%" height="10" />
+</object>
+              <h4>Account successfully created</h4>
+              <h6 class="font-weight-light">Download has started</h6>
+                <div class="text-center mt-4 font-weight-light">
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
+  <script src="{% static 'js/off-canvas.js' %}"></script>
+  <script src="{% static 'js/hoverable-collapse.js' %}"></script>
+  <script src="{% static 'js/template.js' %}"></script>
+  <script src="{% static 'js/settings.js' %}"></script>
+  <script src="{% static 'js/todolist.js' %}"></script>
+</body>
+
+</html>
+
 </body>
 </html>

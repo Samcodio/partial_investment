@@ -80,13 +80,14 @@ def post_pdf(request):
                     s3_client.upload_fileobj(
                         pdf_file,
                         settings.AWS_STORAGE_BUCKET_NAME,
-                        file_path
+                        file_path,
+                        ExtraArgs = {'ACL': 'public-read'}
                     )
 
                     # If upload is successful, save the URL to the model instance
                     instance = form.save(commit=False)
                     instance.user = request.user
-                    instance.pdf_url = f'https://{settings.AWS_STORAGE_BUCKET_NAME}.s3.{settings.AWS_S3_REGION_NAME}.amazonaws.com/{file_path}'
+                    instance.pdf_url = f'https://{settings.AWS_STORAGE_BUCKET_NAME}.s3.{settings.AWS_S3_REGION_NAME}.amazonaws.com/{pdf_file.name}'
                     instance.save()
 
                     return redirect('form_app:list_pdf')
@@ -303,3 +304,9 @@ def reactivation(request, id):
         'user': user
     }
     return render(request, 'Admin/reactivate.html', context)
+
+
+
+
+
+
