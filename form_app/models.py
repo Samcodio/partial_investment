@@ -76,7 +76,7 @@ class Post_pdf(models.Model):
 
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     pdf_name = models.CharField(max_length=50)
-    pdf_url = models.URLField(max_length=200)
+    pdf_url = models.URLField(max_length=200, null=True, blank=True)
     price = models.IntegerField(null=True, blank=True)
     posted_on = models.DateField(auto_now_add=True, null=True, blank=True)
 

@@ -3,11 +3,13 @@ from django.forms import *
 
 
 class post_form(ModelForm):
+    pdf_file = forms.FileField(widget=ClearableFileInput(attrs={'accept': 'application/pdf'}))
+
     class Meta:
         model = Post_pdf
         fields = ['pdf_name', 'pdf_file', 'price']
         widgets = {
-            'pdf_file': forms.ClearableFileInput(attrs={'accept': 'application/pdf'}),
+            'pdf_file': FileInput(attrs={'accept': 'application/pdf'}),
         }
 
 
