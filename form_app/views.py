@@ -6,6 +6,8 @@ from django.http import HttpResponse
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.decorators import permission_required
+import boto3
+from django.conf import settings
 
 # Create your views here.
 
@@ -53,6 +55,52 @@ def post_pdf(request):
         'form': form
     }
     return render(request, 'form_app/Posts/create_post.html', context)
+
+
+# @login_required
+# def post_pdf(request):
+#     form = post_form()
+#     if request.method == 'POST':
+#         form = post_form(request.POST, request.FILES)
+#         if form.is_valid():
+#             pdf_file = request.FILES.get('pdf_file')
+#
+#             if pdf_file:
+#                 s3_client = boto3.client(
+#                     's3',
+#                     aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
+#                     aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
+#                     region_name=settings.AWS_S3_REGION_NAME
+#                 )
+#
+#                 # Define the file path in S3 bucket
+#                 file_path = f'pdfs/{pdf_file.name}'
+#
+#                 try:
+#                     s3_client.upload_fileobj(
+#                         pdf_file,
+#                         settings.AWS_STORAGE_BUCKET_NAME,
+#                         file_path
+#                     )
+#
+#                     # If upload is successful, save the URL to the model instance
+#                     instance = form.save(commit=False)
+#                     instance.user = request.user
+#                     instance.pdf_url = f'https://{settings.AWS_STORAGE_BUCKET_NAME}.s3.{settings.AWS_S3_REGION_NAME}.amazonaws.com/{file_path}'
+#                     instance.save()
+#
+#                     return redirect('form_app:list_pdf')
+#                 except Exception as e:
+#                     messages.error(request, f'Error uploading file: {str(e)}')
+#             else:
+#                 messages.error(request, 'No PDF file provided')
+#         else:
+#             messages.error(request, 'Invalid details')
+#
+#     context = {
+#         'form': form
+#     }
+#     return render(request, 'form_app/Posts/create_post.html', context)
 
 
 def pdf_details(request, pk):

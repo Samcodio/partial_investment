@@ -6,6 +6,9 @@ class post_form(ModelForm):
     class Meta:
         model = Post_pdf
         fields = ['pdf_name', 'pdf_file', 'price']
+        widgets = {
+            'pdf_file': forms.ClearableFileInput(attrs={'accept': 'application/pdf'}),
+        }
 
 
 class EditProfileInfo(ModelForm):
