@@ -96,7 +96,7 @@ def post_pdf(request):
                     # If upload is successful, save the URL to the model instance
                     instance = form.save(commit=False)
                     instance.user = request.user
-                    instance.pdf_url = f'https://{settings.AWS_STORAGE_BUCKET_NAME}.s3.{settings.AWS_S3_REGION_NAME}.amazonaws.com/{pdf_file.name}'
+                    instance.pdf_url = pdf_url
                     instance.save()
 
                     return redirect('form_app:list_pdf')
