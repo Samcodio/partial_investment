@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.decorators import permission_required
 import boto3
 from django.conf import settings
+from datetime import datetime, timedelta
 
 # Create your views here.
 
@@ -75,13 +76,18 @@ def post_pdf(request):
 
                 # Define the file path in S3 bucket
                 file_path = f'pdfs/{pdf_file.name}'
+                expiration_date = datetime.now() + timedelta(days=90)
 
                 try:
                     s3_client.upload_fileobj(
                         pdf_file,
                         settings.AWS_STORAGE_BUCKET_NAME,
                         file_path,
-                        ExtraArgs = {'ACL': 'public-read'}
+                        ExtraArgs = {'ACL': 'public-read',
+                                     'Metadata': {
+                                         'expiration_date': expiration_date.strftime('%Y-%m-%d')
+                                     }
+                                 }
                     )
 
                     pdf_url = s3_client.generate_presigned_url(
