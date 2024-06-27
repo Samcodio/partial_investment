@@ -96,7 +96,7 @@ def post_pdf(request):
                             'Bucket': settings.AWS_STORAGE_BUCKET_NAME,
                             'Key': file_path
                         },
-                        ExpiresIn=29030400
+                        ExpiresIn=86400
                     )
 
                     # If upload is successful, save the URL to the model instance
