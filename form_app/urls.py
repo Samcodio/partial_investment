@@ -21,6 +21,7 @@ urlpatterns = [
     path('T&Cs', views.T_and_C, name='Terms_and_conditions'),
     path('deac/<int:id>', views.deactivation, name='deactivate'),
     path('reac/<int:id>', views.reactivation, name='reactivate'),
+    path('del/<int:id>', views.deletion, name='deletion'),
     # path('TopUpAccount/', views.TopUpAccount, name='TopUpAccount'),
 
 ]

@@ -1,0 +1,136 @@
+{% extends 'form_app/base.html'%}
+{% load static %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-12 grid-margin">
+            <div class="row">
+                <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                    <h6 class="font-weight-normal mb-0">Account Deletion</h6>
+                </div>
+                <div>
+                    <style>
+                        .noaccess{
+                                display: flex;
+                                width: 120px;
+                                background-color: rgb(121, 121, 121);
+                                font-family:Arial, Helvetica, sans-serif;
+                                position: absolute;
+                                left: 100px;
+                                top: 90px;
+                                border-radius: 10px;
+                                font-size: small;
+                                padding-top: 5px;
+                                align-items: center;
+                                justify-content: center;
+}
+            </style>
+          <script>
+setTimeout(function() {
+var message = document.querySelector('.noaccess');
+if (message) {
+    message.remove();
+}
+}, 5000
+);
+</script>
+                {% if messages %}
+                {% for message in messages %}
+                <span class="noaccess"><p>{{message}}</p></span>
+                {% endfor %}
+                {% endif %}
+                <div class="col-12 col-xl-4">
+                    <div class="justify-content-end d-flex">
+                        <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
+<!--                            <button class="btn btn-sm btn-light bg-white dropdown-toggle" type="button"-->
+<!--                                id="dropdownMenuDate2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">-->
+<!--                                <i class="mdi mdi-calendar"></i> Today (10 Jan 2021)-->
+<!--                            </button>-->
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuDate2">
+                                <a class="dropdown-item" href="#">January - March</a>
+                                <a class="dropdown-item" href="#">March - June</a>
+                                <a class="dropdown-item" href="#">June - August</a>
+                                <a class="dropdown-item" href="#">August - November</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 grid-margin transparent">
+        <div class="row">
+            <div class="col-md-4 mb-4 stretch-card transparent">
+                <div class="card card-tale">
+                    <div class="card-body">
+                        <p class="mb-4">Delete {{user.username}}'s account</p>
+                        <form action="" method="POST">
+                            {% csrf_token %}
+<!--                        <div class="d-flex flex-wrap justify-content-between mb-4">-->
+<!--                            <p class="fs-30 mb-2">&#8358;-->
+
+<!--                            </p>-->
+<!--                        </div>-->
+                            <input class="btn btn-success" type="submit" value="Delete">
+                            </form>
+                    </div>
+<!--                    <div class="card-body">-->
+<!--                        <p class="mb-4"> Aamir Today's Wallet Balance</p>-->
+<!--                        <div class="d-flex flex-wrap justify-content-between mb-4">-->
+<!--                            <p class="fs-30 mb-2">&#8358;0.00</p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                </div>
+            </div>
+<!--            <div class="col-md-8 grid-margin stretch-card">-->
+<!--                <div class="card">-->
+<!--                  <div class="card-body">-->
+<!--                    <p class="card-title mb-0">Pending PDF TopUp</p>-->
+<!--                    <div class="table-responsive">-->
+<!--                      <table class="table table-striped table-borderless">-->
+<!--                        <thead>-->
+<!--                          <tr>-->
+<!--                            <th>PDF</th>-->
+<!--                            <th>Price</th>-->
+<!--                            <th>Date</th>-->
+<!--                            <th>Status</th>-->
+<!--                            <th>Action</th>-->
+<!--                          </tr>  -->
+<!--                        </thead>-->
+<!--                        <tbody>-->
+<!--                          <tr>-->
+<!--                            <td>Display Advertising</td>-->
+<!--                            <td class="font-weight-bold">$551</td>-->
+<!--                            <td>28 Sep 2018</td>-->
+<!--                            <td class="font-weight-medium"><div class="badge badge-warning">Pending</div></td>-->
+<!--                            <td> <a href=""><button class="btn btn-success">TopUp</button></a></td>-->
+<!--                          </tr>-->
+<!--                          <tr>-->
+<!--                            <td>Pay Per Click Advertising</td>-->
+<!--                            <td class="font-weight-bold">$523</td>-->
+<!--                            <td>30 Jun 2018</td>-->
+<!--                            <td class="font-weight-medium"><div class="badge badge-warning">Pending</div></td>-->
+<!--                            <td> <a href=""><button class="btn btn-success">TopUp</button></a></td>-->
+<!--                          </tr>-->
+<!--                          <tr>-->
+<!--                            <td>Referral Marketing</td>-->
+<!--                            <td class="font-weight-bold">$283</td>-->
+<!--                            <td>20 Mar 2018</td>-->
+<!--                            <td class="font-weight-medium"><div class="badge badge-warning">Pending</div></td>-->
+<!--                            <td> <a href=""><button class="btn btn-success">TopUp</button></a></td>-->
+<!--                          </tr>-->
+<!--                        </tbody>-->
+<!--                      </table>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+        </div>
+    </div>
+</div>
+{% endblock %}

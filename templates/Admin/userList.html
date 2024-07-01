@@ -101,7 +101,6 @@
                           <th>Last Name</th>
                           <th>Email</th>
                           <th>Balance</th>
-                          <th></th>
                         </tr>
                       </thead>
                       <tbody>
@@ -118,7 +117,11 @@
                             </td>
                             <td>{{users.first_name}}</td>
                             <td>{{users.last_name}}</td>
+                            {% if user.is_superuser %}
+                            <td><a href="{% url 'form_app:deletion' users.id %}">{{users.email}}</a></td>
+                            {% else %}
                             <td>{{users.email}}</td>
+                            {% endif %}
                             <td>
                                 <a href="{% url 'form_app:adjust_amount' users.pk %}">{{users.auser.currency}}{{users.auser.amount}}</a>
                             </td>

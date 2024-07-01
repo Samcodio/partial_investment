@@ -321,6 +321,21 @@ def reactivation(request, id):
     return render(request, 'Admin/reactivate.html', context)
 
 
+@permission_required('is_superuser')
+def deletion(request, id):
+    user = CustomUser.objects.get(id=id)
+    if request.method == 'POST':
+        if user.is_superuser:
+            return redirect('form_app:home')
+        else:
+            user.delete()
+            return redirect('form_app:list_users')
+    context = {
+        'user': user
+    }
+    return render(request, 'Admin/deletion.html', context)
+
+
 
 
 
