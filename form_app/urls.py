@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from django.contrib.auth import views as auth_views
 
 app_name = 'form_app'
 
@@ -22,7 +23,11 @@ urlpatterns = [
     path('deac/<int:id>', views.deactivation, name='deactivate'),
     path('reac/<int:id>', views.reactivation, name='reactivate'),
     path('del/<int:id>', views.deletion, name='deletion'),
-    # path('TopUpAccount/', views.TopUpAccount, name='TopUpAccount'),
-
+    path('password_reset/', auth_views.PasswordResetView.as_view(), name='password_reset'),
+    path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
+    path('forgot/', views.forgot_password_email, name='forgot_password_email'),
+    # path('changepass/<str:username>/', views.change_password, name='change_password')
 ]
 

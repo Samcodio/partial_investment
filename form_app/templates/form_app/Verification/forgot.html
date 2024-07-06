@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Verify your email</title>
+  <title>Password Reset</title>
   <link rel="stylesheet" href="{% static 'vendors/feather/feather.css' %}">
   <link rel="stylesheet" href="{% static 'vendors/ti-icons/css/themify-icons.css' %}">
   <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
@@ -28,15 +28,15 @@
                 <p>{{message}}</p>
                 {% endfor %}
                 {% endif %}
-              <h4>Resend OTP</h4>
+              <h4>Reset your password</h4>
               <h6 class="font-weight-light">Enter your email address here.</h6>
               <form action="" method="POST" class="pt-3">
                   {% csrf_token %}
                 <div class="form-group">
-                    <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" name="otp_email" placeholder="Enter email" >
+                    <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" name="last_email" placeholder="Enter email" >
                 </div>
                 <div class="mt-3">
-                  <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" value="Resend otp">
+                  <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" value="Enter email">
                 </div>
               </form>
             </div>

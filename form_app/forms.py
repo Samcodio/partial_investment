@@ -44,3 +44,5 @@ class AdjustAmount(ModelForm):
         model = UserAmount
         fields = ['amount', 'currency']
 
+
+

@@ -9,6 +9,11 @@ from django.contrib.auth.decorators import permission_required
 import boto3
 from django.conf import settings
 from datetime import datetime, timedelta
+from django.contrib.auth.tokens import default_token_generator
+from django.utils.http import urlsafe_base64_encode
+from django.utils.encoding import force_bytes
+from django.template.loader import render_to_string
+from django.contrib.sites.shortcuts import get_current_site
 
 # Create your views here.
 
@@ -335,6 +340,48 @@ def deletion(request, id):
     }
     return render(request, 'Admin/deletion.html', context)
 
+
+def forgot_password_email(request):
+    if request.method == 'POST':
+        user_email = request.POST["last_email"]
+
+        if CustomUser.objects.filter(email=user_email).exists():
+            user = CustomUser.objects.get(email=user_email)
+
+            token = default_token_generator.make_token(user)
+            uid = urlsafe_base64_encode(force_bytes(user.pk))
+            current_site = get_current_site(request)
+            domain = 'foundever.uk'
+            protocol = 'https' if request.is_secure() else 'http'
+
+            subject = "Password Reset Requested"
+            message = render_to_string('registration/password_reset_email.html', {
+                'domain': domain,
+                'protocol': protocol,
+                'uid': uid,
+                'token': token,
+                'user': user,
+                'site_name': current_site.name,
+            })
+
+            sender = "foundeveruk@gmail.com"
+            receiver = [user.email, ]
+
+            # send email
+            send_mail(
+                subject,
+                message,
+                sender,
+                receiver,
+                fail_silently=False
+
+            )
+            return redirect('form_app:password_reset_done')
+        else:
+            messages.warning(request, 'PLease enter the email used')
+            return redirect('form_app:forgot_password_email')
+    context = {}
+    return render(request, 'form_app/Verification/forgot.html', context)
 
 
 
