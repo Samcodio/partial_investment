@@ -89,21 +89,22 @@ WSGI_APPLICATION = 'form_proj.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'form_sql',
-#         'USER': 'Nosikesamuel',
-#         'PASSWORD': 'Nosikesamuel',
-#         'HOST': 'localhost',
-#     }
-# }
-
-database_url ="postgres://found_ever_user:iqSxDItYZUpsXwIVUyILeVx4Cy5QXii6@dpg-cphhausf7o1s739j7ed0-a.oregon-postgres.render.com/found_ever"
-
 DATABASES = {
-    "default": dj_database_url.parse(database_url)
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'found_ever',
+        'USER': 'admin',
+        'PASSWORD': 'Nosikesamuel2006',
+        'HOST': 'found-ever-aws.cb2aa8m8klf0.eu-north-1.rds.amazonaws.com',
+        'PORT': '3306',
+    }
 }
+
+# database_url ="postgres://found_ever_user:iqSxDItYZUpsXwIVUyILeVx4Cy5QXii6@dpg-cphhausf7o1s739j7ed0-a.oregon-postgres.render.com/found_ever"
+#
+# DATABASES = {
+#     "default": dj_database_url.parse(database_url)
+# }
 
 # postgres://found_ever_user:iqSxDItYZUpsXwIVUyILeVx4Cy5QXii6@dpg-cphhausf7o1s739j7ed0-a.oregon-postgres.render.com/found_ever
 
