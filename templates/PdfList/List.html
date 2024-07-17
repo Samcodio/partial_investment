@@ -1,0 +1,72 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-12 grid-margin">
+            <div class="row">
+                <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                    <h3 class="font-weight-bold">Welcome {{request.user.username}}</h3>
+                    <h6 class="font-weight-normal mb-0">All jobs should be forwarded to <a href="mailto:foundeveruk@gmail.com">foundeveruk@gmail.com</a></h6>
+                    {% if user.is_superuser %}
+                    <a href="{% url 'form_app:post_pdf' %}">Post Job</a>
+                    {% else %}
+                    {% endif %}
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-title mb-0">Top Pdf Task</p>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-borderless">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Price</th>
+                                    <th>Date Created</th>
+                                    <th>Action</th>
+                                    <th>
+                                        {% if user.is_superuser %}
+                                        Delete
+                                        {% else %}
+                                        {% endif %}
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for post in posts %}
+                            <tr>
+                                <th>{{post.pdf_name}}</th>
+                                <th>&#36;{{post.price}}</th>
+                                <th>{{post.posted_on}}</th>
+                                <th>
+                                    <a href="{% url 'form_app:display_pdf' post.pk %}" target="_blank" class="badge badge-success">Accept task</a>
+                                </th>
+                                <th>
+                                {% if user.is_superuser %}
+                                <a href="{{post.get_absolute_url}}">delete</a>
+                                {% else %}
+                                {% endif %}
+                                </th>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

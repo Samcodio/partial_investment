@@ -1,0 +1,57 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Password Reset</title>
+  <link rel="stylesheet" href="{% static 'vendors/feather/feather.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/ti-icons/css/themify-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
+  <link rel="stylesheet" href="{% static 'css/vertical-layout-light/style.css' %}">
+  <link rel="shortcut icon" href="{% static 'images/found_ever_logo.jpg' %}" />
+</head>
+
+<body>
+  <div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="content-wrapper d-flex align-items-center auth px-0">
+        <div class="row w-100 mx-0">
+          <div class="col-lg-4 mx-auto">
+            <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+              <div class="brand-logo">
+                <img src="{% static 'images/found_ever.jpg' %}" alt="logo">
+              </div>
+                {% if messages %}
+                {% for message in messages %}
+                <p>{{message}}</p>
+                {% endfor %}
+                {% endif %}
+              <h4>Reset your password</h4>
+              <h6 class="font-weight-light">Enter your email address here.</h6>
+              <form action="" method="POST" class="pt-3">
+                  {% csrf_token %}
+                <div class="form-group">
+                    <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" name="last_email" placeholder="Enter email" >
+                </div>
+                <div class="mt-3">
+                  <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" value="Enter email">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
+  <script src="{% static 'js/off-canvas.js' %}"></script>
+  <script src="{% static 'js/hoverable-collapse.js' %}"></script>
+  <script src="{% static 'js/template.js' %}"></script>
+  <script src="{% static 'js/settings.js' %}"></script>
+  <script src="{% static 'js/todolist.js' %}"></script>
+</body>
+
+</html>
+

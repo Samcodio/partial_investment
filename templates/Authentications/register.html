@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Found Ever</title>
+  <link rel="stylesheet" href="{% static 'vendors/feather/feather.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/ti-icons/css/themify-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
+  <link rel="stylesheet" href="{% static 'css/vertical-layout-light/style.css' %}">
+  <link rel="shortcut icon" href="{% static 'images/found_ever_logo.jpg' %}" />
+</head>
+
+<body>
+  <div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="content-wrapper d-flex align-items-center auth px-0">
+        <div class="row w-100 mx-0">
+          <div class="col-lg-4 mx-auto">
+            <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+              <div class="brand-logo">
+                <a href="{% url 'form_app:home' %}"><img src="{% static 'images/found_ever.jpg' %}" alt="logo"></a>
+              </div>
+              <style>
+                                .noaccess{
+                                        display: flex;
+                                        width: 120px;
+                                        background-color: rgb(121, 121, 121);
+                                        font-family:Arial, Helvetica, sans-serif;
+                                        position: absolute;
+                                        left: 100px;
+                                        top: 90px;
+                                        border-radius: 10px;
+                                        font-size: small;
+                                        padding-top: 5px;
+                                        align-items: center;
+                                        justify-content: center;
+        }
+                    </style>
+                  <script>
+        setTimeout(function() {
+        var message = document.querySelector('.noaccess');
+        if (message) {
+            message.remove();
+        }
+    }, 5000
+    );
+    </script>
+                        {% if messages %}
+                        {% for message in messages %}
+                        <span class="noaccess"><p>{{message}}</p></span>
+                        {% endfor %}
+                        {% endif %}
+              <h4>New here?</h4>
+              <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
+              <form action="" method="POST" class="pt-3">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{form.username}}
+                </div>
+                <div class="form-group">
+                  {{form.first_name}}
+                </div>
+                <div class="form-group">
+                  {{form.last_name}}
+                </div>
+                <div class="form-group">
+                  {{form.email}}
+                </div>
+                  <div class="form-group">
+                    {{form.password}}
+                      <p>Password must contain at least, one uppercase,
+                          one lowerase, 8 letters/numbers</p>
+                </div>
+                <div class="form-group">
+                  {{form.confirm_password}}
+                </div>
+                <div class="mb-4 mx-4">
+                  <div class="form-check">
+                      <input type="checkbox" class="form-check-input" onchange="return clickTermsBox(this)">
+                        I agree to all <a href="{% url 'form_app:Terms_and_conditions' %}"> Terms & Conditions</a>
+                  </div>
+                </div>
+                <div class="mt-3">
+                  <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" id="submitButton" disabled value="SIGN UP">
+                </div>
+                <div class="text-center mt-4 font-weight-light">
+                  Already have an account? <a href="{% url 'user_login:login' %}" class="text-primary">Login</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+      const submitButton = document.getElementById('submitButton')
+      function clickTermsBox(e) {
+        if (e.checked) {
+          submitButton.removeAttribute('disabled')
+        } else {
+          submitButton.setAttribute('disabled', 'true')
+        }
+      }
+  </script>
+  <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
+  <script src="{% static 'js/off-canvas.js' %}"></script>
+  <script src="{% static 'js/hoverable-collapse.js' %}"></script>
+  <script src="{% static 'js/template.js' %}"></script>
+  <script src="{% static 'js/settings.js' %}"></script>
+  <script src="{% static 'js/todolist.js' %}"></script>
+</body>
+
+</html>
