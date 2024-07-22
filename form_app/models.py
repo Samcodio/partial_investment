@@ -52,7 +52,7 @@ class CustomUser(AbstractUser):
     ]
     email = models.EmailField(unique=True)
     bank_name = models.CharField(max_length=50, choices=Status_choices)
-    account_number = models.CharField(max_length=10, null=True, blank=True)
+    account_number = models.CharField(max_length=15, null=True, blank=True)
     account_name = models.CharField(max_length=40, null=True, blank=True)
 
     USERNAME_FIELD = ("email")
