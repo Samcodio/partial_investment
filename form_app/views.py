@@ -274,7 +274,7 @@ def list_users(request):
 
 @login_required()
 def userlist(request):
-    listusers = CustomUser.objects.all()
+    listusers = CustomUser.objects.all()[:100]
     count = listusers.count
     context = {
         'listusers': listusers,
