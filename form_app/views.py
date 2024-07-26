@@ -264,7 +264,7 @@ def user_amnt(request, pk):
 
 @login_required()
 def list_users(request):
-    listusers = CustomUser.objects.all().order_by('username')[:150]
+    listusers = CustomUser.objects.all().order_by('email')[:150]
     count = listusers.count
     context = {
         'listusers': listusers,
@@ -274,7 +274,7 @@ def list_users(request):
 
 @login_required()
 def userlist(request):
-    listusers = CustomUser.objects.all().order_by('username')[151:300]
+    listusers = CustomUser.objects.all().order_by('email')[151:300]
     count = listusers.count
     context = {
         'listusers': listusers,
@@ -285,7 +285,7 @@ def userlist(request):
 
 @login_required()
 def userlist3(request):
-    listusers = CustomUser.objects.all().order_by('username')[301:450]
+    listusers = CustomUser.objects.all().order_by('email')[301:450]
     count = listusers.count
     context = {
         'listusers': listusers,
