@@ -264,7 +264,7 @@ def user_amnt(request, pk):
 
 @login_required()
 def list_users(request):
-    listusers = CustomUser.objects.all()
+    listusers = CustomUser.objects.all()[:150]
     count = listusers.count
     context = {
         'listusers': listusers,
@@ -274,7 +274,7 @@ def list_users(request):
 
 @login_required()
 def userlist(request):
-    listusers = CustomUser.objects.all()[:100]
+    listusers = CustomUser.objects.all()[151:300]
     count = listusers.count
     context = {
         'listusers': listusers,
