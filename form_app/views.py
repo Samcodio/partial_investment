@@ -264,7 +264,7 @@ def user_amnt(request, pk):
 
 @login_required()
 def list_users(request):
-    listusers = CustomUser.objects.all()[:150]
+    listusers = CustomUser.objects.all().order_by('username')[:150]
     count = listusers.count
     context = {
         'listusers': listusers,
@@ -274,13 +274,25 @@ def list_users(request):
 
 @login_required()
 def userlist(request):
-    listusers = CustomUser.objects.all()[151:300]
+    listusers = CustomUser.objects.all().order_by('username')[151:300]
     count = listusers.count
     context = {
         'listusers': listusers,
         'count': count
     }
     return render(request, 'Admin/List.html', context)
+
+
+@login_required()
+def userlist3(request):
+    listusers = CustomUser.objects.all().order_by('username')[301:450]
+    count = listusers.count
+    context = {
+        'listusers': listusers,
+        'count': count
+    }
+    return render(request, 'Admin/userList3.html', context)
+
 
 @login_required()
 def adjust_amount(request, pk):

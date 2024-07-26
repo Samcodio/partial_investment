@@ -331,13 +331,6 @@
     {% else %}
     {% endif %}
           </li>
-          <li class="nav-item">
-          {% if user.is_superuser %}
-            <a class="nav-link" href="{% url 'form_app:list_user' %}"><i class="ti-user menu-icon"></i>
-<span class="menu-title">User list(pg2)</span></a>
-    {% else %}
-    {% endif %}
-          </li>
             {% if user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link" href="{% url 'user_login:logout' %}">
