@@ -273,6 +273,16 @@ def list_users(request):
     return render(request, 'Admin/userList.html', context)
 
 @login_required()
+def userlist(request):
+    listusers = CustomUser.objects.all()
+    count = listusers.count
+    context = {
+        'listusers': listusers,
+        'count': count
+    }
+    return render(request, 'Admin/List.html', context)
+
+@login_required()
 def adjust_amount(request, pk):
     current_amount = get_object_or_404(UserAmount, pk=pk)
     updforum = AdjustAmount(instance=current_amount)
