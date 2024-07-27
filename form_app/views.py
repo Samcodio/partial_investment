@@ -405,6 +405,7 @@ def forgot_password_email(request):
     context = {}
     return render(request, 'form_app/Verification/forgot.html', context)
 
+
 def PasswordResetDoneView(request):
     context = {}
     return render(request, 'form_app/Password_reset/password_reset_done.html')
