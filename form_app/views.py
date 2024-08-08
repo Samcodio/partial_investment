@@ -185,7 +185,7 @@ def resend_otp(request):
                                     Hello, {user.username}
                                     Your OTP is {otp.otp_code}
                                     It expires in 5 minutes.\n
-                                    https://foundever.uk/verify-email/{user.username}/
+                                    https://foundever.info/verify-email/{user.username}/
                                     
                             """
             sender = "foundeveruk@gmail.com"
@@ -373,7 +373,7 @@ def forgot_password_email(request):
             token = default_token_generator.make_token(user)
             uid = urlsafe_base64_encode(force_bytes(user.pk))
             current_site = get_current_site(request)
-            domain = 'foundever.uk'
+            domain = 'foundever.info'
             protocol = 'https' if request.is_secure() else 'http'
 
             subject = "Password Reset Requested"

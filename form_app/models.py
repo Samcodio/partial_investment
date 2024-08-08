@@ -131,7 +131,7 @@ def create_token(sender, instance, created, **kwargs):
                         Hello, {instance.username}
                         Your OTP is {otp.otp_code}
                         It expires in 5 minutes. Use the link to return to the webpage\n
-                        https://foundever.uk/verify-email/{instance.username}/
+                        https://foundever.info/verify-email/{instance.username}/
                         
                 """
         sender = "foundeveruk@gmail.com"
