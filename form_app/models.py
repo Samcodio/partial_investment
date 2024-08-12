@@ -137,8 +137,6 @@ def create_token(sender, instance, created, **kwargs):
         sender = "foundeveruk@gmail.com"
         receiver = [instance.email, ]
 
-
-
         #send email
         send_mail(
             subject,
