@@ -40,9 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'form_app',
-    # 'user_login',
-    # 'storages',
+    'form_app',
+    'user_login',
+    'storages',
 ]
 
 AUTH_USER_MODEL = 'form_app.CustomUser'
