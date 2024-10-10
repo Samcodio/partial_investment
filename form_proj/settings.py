@@ -82,23 +82,23 @@ WSGI_APPLICATION = 'form_proj.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'found_ever',
-        'USER': 'admin',
-        'PASSWORD': 'Nosikesamuel2006',
-        'HOST': 'found-ever-aws.cb2aa8m8klf0.eu-north-1.rds.amazonaws.com',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'found_ever',
+#         'USER': 'admin',
+#         'PASSWORD': 'Nosikesamuel2006',
+#         'HOST': 'found-ever-aws.cb2aa8m8klf0.eu-north-1.rds.amazonaws.com',
+#         'PORT': '3306',
+#     }
+# }
 
 # database_url ="postgres://found_ever_user:iqSxDItYZUpsXwIVUyILeVx4Cy5QXii6@dpg-cphhausf7o1s739j7ed0-a.oregon-postgres.render.com/found_ever"
 #
